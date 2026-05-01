@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalNotice } from "@/components/LegalNotice";
 import { nutritionPreamble, nutritionTopics } from "@/lib/columns/nutrition-notes";
 import { pharmaRelatedDisclaimer } from "@/lib/legal-copy";
@@ -15,6 +16,11 @@ export default function NutritionColumnPage() {
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">Nutrition notes</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">栄養の豆知識</h1>
         <p className="mt-4 text-sm leading-relaxed text-emerald-900/80 dark:text-emerald-100/75">{nutritionPreamble}</p>
+        <p className="mt-4 text-sm">
+          <Link href="/column/vegetables" className="font-medium text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-200">
+            野菜別ガイド（指定野菜・ブロッコリースプラウトほか）へ →
+          </Link>
+        </p>
       </header>
 
       <div className="mt-8 space-y-6">
