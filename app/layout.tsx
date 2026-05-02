@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | 旬と相場のメモ帳",
   },
   description:
-    "旬・相場の感触・選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
+    "旬・直近の相場・選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
 };
 
 export default function RootLayout({

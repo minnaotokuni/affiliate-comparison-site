@@ -3,6 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* 固定ヘッダー＋余白。アンカージャンプ・scroll-margin の基準 */
+  --site-scroll-padding: max(7.5rem, 118px);
+  --site-sticky-toc-top: max(7rem, 112px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --site-scroll-padding: max(8.75rem, 132px);
+    --site-sticky-toc-top: max(7.75rem, 124px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--site-scroll-padding);
 }
 
 @theme inline {

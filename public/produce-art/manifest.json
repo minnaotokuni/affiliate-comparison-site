@@ -1,0 +1,674 @@
+[
+  {
+    "label": "温州ミカン",
+    "file": "温州ミカン.webp",
+    "row": "0",
+    "col": "0"
+  },
+  {
+    "label": "リンゴ",
+    "file": "リンゴ.webp",
+    "row": "0",
+    "col": "1"
+  },
+  {
+    "label": "バナナ",
+    "file": "バナナ.webp",
+    "row": "0",
+    "col": "2"
+  },
+  {
+    "label": "イチゴ",
+    "file": "イチゴ.webp",
+    "row": "0",
+    "col": "3"
+  },
+  {
+    "label": "大根",
+    "file": "大根.webp",
+    "row": "0",
+    "col": "4"
+  },
+  {
+    "label": "人参",
+    "file": "人参.webp",
+    "row": "0",
+    "col": "5"
+  },
+  {
+    "label": "キャベツ",
+    "file": "キャベツ.webp",
+    "row": "0",
+    "col": "6"
+  },
+  {
+    "label": "玉ねぎ",
+    "file": "玉ねぎ.webp",
+    "row": "0",
+    "col": "7"
+  },
+  {
+    "label": "ザクロ",
+    "file": "ザクロ.webp",
+    "row": "0",
+    "col": "8"
+  },
+  {
+    "label": "パッションフルーツ",
+    "file": "パッションフルーツ.webp",
+    "row": "0",
+    "col": "9"
+  },
+  {
+    "label": "ドラゴンフルーツ",
+    "file": "ドラゴンフルーツ.webp",
+    "row": "0",
+    "col": "10"
+  },
+  {
+    "label": "スターフルーツ",
+    "file": "スターフルーツ.webp",
+    "row": "0",
+    "col": "11"
+  },
+  {
+    "label": "かぶ",
+    "file": "かぶ.webp",
+    "row": "0",
+    "col": "12"
+  },
+  {
+    "label": "パースニップ",
+    "file": "パースニップ.webp",
+    "row": "0",
+    "col": "13"
+  },
+  {
+    "label": "ホースラディッシュ",
+    "file": "ホースラディッシュ.webp",
+    "row": "0",
+    "col": "14"
+  },
+  {
+    "label": "クレソン",
+    "file": "クレソン.webp",
+    "row": "0",
+    "col": "15"
+  },
+  {
+    "label": "メロン",
+    "file": "メロン.webp",
+    "row": "1",
+    "col": "0"
+  },
+  {
+    "label": "スイカ",
+    "file": "スイカ.webp",
+    "row": "1",
+    "col": "1"
+  },
+  {
+    "label": "カキ",
+    "file": "カキ.webp",
+    "row": "1",
+    "col": "2"
+  },
+  {
+    "label": "ナシ",
+    "file": "ナシ.webp",
+    "row": "1",
+    "col": "3"
+  },
+  {
+    "label": "トマト",
+    "file": "トマト.webp",
+    "row": "1",
+    "col": "4"
+  },
+  {
+    "label": "ナス",
+    "file": "ナス.webp",
+    "row": "1",
+    "col": "5"
+  },
+  {
+    "label": "じゃがいも",
+    "file": "じゃがいも.webp",
+    "row": "1",
+    "col": "6"
+  },
+  {
+    "label": "サツマイモ",
+    "file": "サツマイモ.webp",
+    "row": "1",
+    "col": "7"
+  },
+  {
+    "label": "ライチ",
+    "file": "ライチ.webp",
+    "row": "1",
+    "col": "8"
+  },
+  {
+    "label": "ランブータン",
+    "file": "ランブータン.webp",
+    "row": "1",
+    "col": "9"
+  },
+  {
+    "label": "グアバ",
+    "file": "グアバ.webp",
+    "row": "1",
+    "col": "10"
+  },
+  {
+    "label": "デーツ",
+    "file": "デーツ.webp",
+    "row": "1",
+    "col": "11"
+  },
+  {
+    "label": "ルッコラ",
+    "file": "ルッコラ.webp",
+    "row": "1",
+    "col": "12"
+  },
+  {
+    "label": "からし菜",
+    "file": "からし菜.webp",
+    "row": "1",
+    "col": "13"
+  },
+  {
+    "label": "コールラビ",
+    "file": "コールラビ.webp",
+    "row": "1",
+    "col": "14"
+  },
+  {
+    "label": "西洋ゴボウ",
+    "file": "西洋ゴボウ.webp",
+    "row": "1",
+    "col": "15"
+  },
+  {
+    "label": "パイナップル",
+    "file": "パイナップル.webp",
+    "row": "2",
+    "col": "0"
+  },
+  {
+    "label": "キウイフルーツ",
+    "file": "キウイフルーツ.webp",
+    "row": "2",
+    "col": "1"
+  },
+  {
+    "label": "ブルーベリー",
+    "file": "ブルーベリー.webp",
+    "row": "2",
+    "col": "2"
+  },
+  {
+    "label": "さくらんぼ",
+    "file": "さくらんぼ.webp",
+    "row": "2",
+    "col": "3"
+  },
+  {
+    "label": "キュウリ",
+    "file": "キュウリ.webp",
+    "row": "2",
+    "col": "4"
+  },
+  {
+    "label": "人参",
+    "file": "人参-1.webp",
+    "row": "2",
+    "col": "5"
+  },
+  {
+    "label": "サツマイモ",
+    "file": "サツマイモ-1.webp",
+    "row": "2",
+    "col": "6"
+  },
+  {
+    "label": "白菜",
+    "file": "白菜.webp",
+    "row": "2",
+    "col": "7"
+  },
+  {
+    "label": "アプリコット",
+    "file": "アプリコット.webp",
+    "row": "2",
+    "col": "8"
+  },
+  {
+    "label": "カンタロープ",
+    "file": "カンタロープ.webp",
+    "row": "2",
+    "col": "9"
+  },
+  {
+    "label": "クレメンタイン",
+    "file": "クレメンタイン.webp",
+    "row": "2",
+    "col": "10"
+  },
+  {
+    "label": "ジャックフルーツ",
+    "file": "ジャックフルーツ.webp",
+    "row": "2",
+    "col": "11"
+  },
+  {
+    "label": "サヤエンドウ",
+    "file": "サヤエンドウ.webp",
+    "row": "2",
+    "col": "12"
+  },
+  {
+    "label": "ソラマメ",
+    "file": "ソラマメ.webp",
+    "row": "2",
+    "col": "13"
+  },
+  {
+    "label": "インゲンマメ",
+    "file": "インゲンマメ.webp",
+    "row": "2",
+    "col": "14"
+  },
+  {
+    "label": "ニラ",
+    "file": "ニラ.webp",
+    "row": "2",
+    "col": "15"
+  },
+  {
+    "label": "ゆず",
+    "file": "ゆず.webp",
+    "row": "3",
+    "col": "0"
+  },
+  {
+    "label": "マンゴー",
+    "file": "マンゴー.webp",
+    "row": "3",
+    "col": "1"
+  },
+  {
+    "label": "プルーン",
+    "file": "プルーン.webp",
+    "row": "3",
+    "col": "2"
+  },
+  {
+    "label": "レモン",
+    "file": "レモン.webp",
+    "row": "3",
+    "col": "3"
+  },
+  {
+    "label": "ほうれん草",
+    "file": "ほうれん草.webp",
+    "row": "3",
+    "col": "4"
+  },
+  {
+    "label": "ブロッコリー",
+    "file": "ブロッコリー.webp",
+    "row": "3",
+    "col": "5"
+  },
+  {
+    "label": "レタス",
+    "file": "レタス.webp",
+    "row": "3",
+    "col": "6"
+  },
+  {
+    "label": "ピーマン",
+    "file": "ピーマン.webp",
+    "row": "3",
+    "col": "7"
+  },
+  {
+    "label": "キンカン",
+    "file": "キンカン.webp",
+    "row": "3",
+    "col": "8"
+  },
+  {
+    "label": "パパイヤ",
+    "file": "パパイヤ.webp",
+    "row": "3",
+    "col": "9"
+  },
+  {
+    "label": "タマリンド",
+    "file": "タマリンド.webp",
+    "row": "3",
+    "col": "10"
+  },
+  {
+    "label": "アスパラガス",
+    "file": "アスパラガス.webp",
+    "row": "3",
+    "col": "11"
+  },
+  {
+    "label": "エシャロット",
+    "file": "エシャロット.webp",
+    "row": "3",
+    "col": "12"
+  },
+  {
+    "label": "ミョウガ",
+    "file": "ミョウガ.webp",
+    "row": "3",
+    "col": "13"
+  },
+  {
+    "label": "タケノコ",
+    "file": "タケノコ.webp",
+    "row": "3",
+    "col": "14"
+  },
+  {
+    "label": "シシトウ",
+    "file": "シシトウ.webp",
+    "row": "3",
+    "col": "15"
+  },
+  {
+    "label": "温州ミカン",
+    "file": "温州ミカン-1.webp",
+    "row": "4",
+    "col": "0"
+  },
+  {
+    "label": "リンゴ",
+    "file": "リンゴ-1.webp",
+    "row": "4",
+    "col": "1"
+  },
+  {
+    "label": "栗",
+    "file": "栗.webp",
+    "row": "4",
+    "col": "2"
+  },
+  {
+    "label": "いちじく",
+    "file": "いちじく.webp",
+    "row": "4",
+    "col": "3"
+  },
+  {
+    "label": "南瓜",
+    "file": "南瓜.webp",
+    "row": "4",
+    "col": "4"
+  },
+  {
+    "label": "ねぎ",
+    "file": "ねぎ.webp",
+    "row": "4",
+    "col": "5"
+  },
+  {
+    "label": "小松菜",
+    "file": "小松菜.webp",
+    "row": "4",
+    "col": "6"
+  },
+  {
+    "label": "オクラ",
+    "file": "オクラ.webp",
+    "row": "4",
+    "col": "7"
+  },
+  {
+    "label": "カリフラワー",
+    "file": "カリフラワー.webp",
+    "row": "4",
+    "col": "8"
+  },
+  {
+    "label": "カリフラワー",
+    "file": "カリフラワー-1.webp",
+    "row": "4",
+    "col": "9"
+  },
+  {
+    "label": "芽キャベツ",
+    "file": "芽キャベツ.webp",
+    "row": "4",
+    "col": "10"
+  },
+  {
+    "label": "アーティチョーク",
+    "file": "アーティチョーク.webp",
+    "row": "4",
+    "col": "11"
+  },
+  {
+    "label": "シシトウ",
+    "file": "シシトウ-1.webp",
+    "row": "4",
+    "col": "12"
+  },
+  {
+    "label": "シソ",
+    "file": "シソ.webp",
+    "row": "4",
+    "col": "13"
+  },
+  {
+    "label": "シソ",
+    "file": "シソ-1.webp",
+    "row": "4",
+    "col": "14"
+  },
+  {
+    "label": "ニンニクの芽",
+    "file": "ニンニクの芽.webp",
+    "row": "4",
+    "col": "15"
+  },
+  {
+    "label": "いちじく",
+    "file": "いちじく-1.webp",
+    "row": "5",
+    "col": "0"
+  },
+  {
+    "label": "すもも",
+    "file": "すもも.webp",
+    "row": "5",
+    "col": "1"
+  },
+  {
+    "label": "ビワ",
+    "file": "ビワ.webp",
+    "row": "5",
+    "col": "2"
+  },
+  {
+    "label": "アボカド",
+    "file": "アボカド.webp",
+    "row": "5",
+    "col": "3"
+  },
+  {
+    "label": "ねぎ",
+    "file": "ねぎ-1.webp",
+    "row": "5",
+    "col": "4"
+  },
+  {
+    "label": "小松菜",
+    "file": "小松菜-1.webp",
+    "row": "5",
+    "col": "5"
+  },
+  {
+    "label": "レンコン",
+    "file": "レンコン.webp",
+    "row": "5",
+    "col": "6"
+  },
+  {
+    "label": "ゴボウ",
+    "file": "ゴボウ.webp",
+    "row": "5",
+    "col": "7"
+  },
+  {
+    "label": "ケール",
+    "file": "ケール.webp",
+    "row": "5",
+    "col": "8"
+  },
+  {
+    "label": "赤キャベツ",
+    "file": "赤キャベツ.webp",
+    "row": "5",
+    "col": "9"
+  },
+  {
+    "label": "赤キャベツ",
+    "file": "赤キャベツ-1.webp",
+    "row": "5",
+    "col": "10"
+  },
+  {
+    "label": "スイスチャード",
+    "file": "スイスチャード.webp",
+    "row": "5",
+    "col": "11"
+  },
+  {
+    "label": "山芋",
+    "file": "山芋.webp",
+    "row": "5",
+    "col": "12"
+  },
+  {
+    "label": "キャッサバ",
+    "file": "キャッサバ.webp",
+    "row": "5",
+    "col": "13"
+  },
+  {
+    "label": "シイタケ",
+    "file": "シイタケ.webp",
+    "row": "5",
+    "col": "14"
+  },
+  {
+    "label": "エノキ",
+    "file": "エノキ.webp",
+    "row": "5",
+    "col": "15"
+  },
+  {
+    "label": "ビワ",
+    "file": "ビワ-1.webp",
+    "row": "6",
+    "col": "0"
+  },
+  {
+    "label": "プルーン",
+    "file": "プルーン-1.webp",
+    "row": "6",
+    "col": "1"
+  },
+  {
+    "label": "グレープフルーツ",
+    "file": "グレープフルーツ.webp",
+    "row": "6",
+    "col": "2"
+  },
+  {
+    "label": "すだち",
+    "file": "すだち.webp",
+    "row": "6",
+    "col": "3"
+  },
+  {
+    "label": "もやし",
+    "file": "もやし.webp",
+    "row": "6",
+    "col": "4"
+  },
+  {
+    "label": "とうもろこし",
+    "file": "とうもろこし.webp",
+    "row": "6",
+    "col": "5"
+  },
+  {
+    "label": "ニンニク",
+    "file": "ニンニク.webp",
+    "row": "6",
+    "col": "6"
+  },
+  {
+    "label": "生姜",
+    "file": "生姜.webp",
+    "row": "6",
+    "col": "7"
+  },
+  {
+    "label": "フェンネル",
+    "file": "フェンネル.webp",
+    "row": "6",
+    "col": "8"
+  },
+  {
+    "label": "フェンネル",
+    "file": "フェンネル-1.webp",
+    "row": "6",
+    "col": "9"
+  },
+  {
+    "label": "セロリルート",
+    "file": "セロリルート.webp",
+    "row": "6",
+    "col": "10"
+  },
+  {
+    "label": "ルタバガ",
+    "file": "ルタバガ.webp",
+    "row": "6",
+    "col": "11"
+  },
+  {
+    "label": "エノキ",
+    "file": "エノキ-1.webp",
+    "row": "6",
+    "col": "12"
+  },
+  {
+    "label": "マイタケ",
+    "file": "マイタケ.webp",
+    "row": "6",
+    "col": "13"
+  },
+  {
+    "label": "シメジ",
+    "file": "シメジ.webp",
+    "row": "6",
+    "col": "14"
+  },
+  {
+    "label": "キクラゲ",
+    "file": "キクラゲ.webp",
+    "row": "6",
+    "col": "15"
+  }
+]
