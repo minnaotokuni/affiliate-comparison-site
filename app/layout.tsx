@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist_Mono, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 
+/** 共有・OG用の本番オリジン（デプロイごとの *.duckgain17-*.vercel.app は認証で開けないことがあります） */
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://affiliate-comparison-site-alpha.vercel.app";
+
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
@@ -15,12 +18,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "旬と相場のメモ帳 | 野菜・果物の実務ナビ",
     template: "%s | 旬と相場のメモ帳",
   },
   description:
     "旬・直近の相場・選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: siteUrl,
+    siteName: "旬と相場のメモ帳",
+  },
 };
 
 export default function RootLayout({
