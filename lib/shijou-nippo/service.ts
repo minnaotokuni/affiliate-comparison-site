@@ -3,7 +3,7 @@ import { SHIJOU_TRACKED_VEG_ITEMS, type ShijouTrackedVeg } from "./config";
 import { fetchSeiMarketCsv } from "./fetch";
 import { SHIJOU_SEI_MARKETS } from "./markets";
 import { parseCabbageSize, parseReportMeta, parseSeiVegetableRows } from "./parse-sei-csv";
-import { CABBAGE_HEAD_KG, PIECE_PROFILES, retailPieceEstimate } from "./retail-estimate";
+import { CABBAGE_HEAD_KG, PIECE_PROFILES, wholesaleYenForPieceKg } from "./retail-estimate";
 import { seiZenIndexUrl } from "./url";
 import type { CabbageSizeLabel, SeiDetailRow, SeiItemRetailRow, ShijouMarketId, ShijouSeiDashboardError, ShijouSeiDashboardPayload } from "./types";
 
@@ -48,7 +48,8 @@ function cabbageRetailRows(marketLabel: string, marketId: ShijouMarketId, cabbag
     const ypkLo = bucket.length > 0 ? volumeWeightedPricePerKg(bucket, "lowYen") : volumeWeightedPricePerKg(cabbageRows, "lowYen");
     const ypk = ypkMid ?? overallMid;
     const headKg = CABBAGE_HEAD_KG[sz];
-    const retail = retailPieceEstimate(ypk, headKg);
+    const grams = Math.round(headKg * 1000);
+    const pieceYen = wholesaleYenForPieceKg(ypk, headKg);
     const detailNote = hasVarietySplit
       ? bucket.length > 0
         ? "品種欄のサイズ表記行を数量加重（同一サイズ内の産地・販売方法別）"
@@ -66,7 +67,9 @@ function cabbageRetailRows(marketLabel: string, marketId: ShijouMarketId, cabbag
       wholesaleMidYenPerKg: midRounded,
       wholesaleLowYenPerKg: ypkLo != null ? Math.round(ypkLo) : null,
       wholesaleYenPerKg: midRounded,
-      retailYenPerPieceEst: retail,
+      typicalPieceGrams: grams,
+      typicalPieceUnitLabel: `${sz}玉の目安`,
+      wholesaleYenForTypicalPiece: pieceYen,
       detailNote,
       csvTopLines: topCsvLinesByVolume(source, 6),
     };
@@ -85,7 +88,7 @@ function simpleItemRow(
   const ypk = ypkMid ?? volumeWeightedYenPerKg(itemRows);
   const prof = PIECE_PROFILES[itemName];
   if (!prof) return null;
-  const retail = retailPieceEstimate(ypk, prof.kg);
+  const pieceYen = wholesaleYenForPieceKg(ypk, prof.kg);
   const midRounded = ypkMid != null ? Math.round(ypkMid) : ypk != null ? Math.round(ypk) : null;
   return {
     marketLabel,
@@ -96,8 +99,10 @@ function simpleItemRow(
     wholesaleMidYenPerKg: midRounded,
     wholesaleLowYenPerKg: ypkLo != null ? Math.round(ypkLo) : null,
     wholesaleYenPerKg: midRounded,
-    retailYenPerPieceEst: retail,
-    detailNote: prof.label + "・卸の高・中・安を数量加重して円/kg換算し、中値ベースで小売目安を算出",
+    typicalPieceGrams: prof.grams,
+    typicalPieceUnitLabel: prof.unitLabel,
+    wholesaleYenForTypicalPiece: pieceYen,
+    detailNote: "卸の高・中・安を数量加重して円/kg換算。代表重量は一般的な目安",
     csvTopLines: topCsvLinesByVolume(itemRows, 6),
   };
 }

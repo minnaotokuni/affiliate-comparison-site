@@ -9,11 +9,23 @@ export function SiteFooter() {
         <p className="text-emerald-200/70">
           掲載内容は個人の現場メモと公開資料の整理であり、特定の効果・効能や投資・仕入れ判断を保証するものではありません。
         </p>
-        <p>
-          <Link href="/about" className="underline-offset-4 hover:underline">
-            サイトについて・法的表示の考え方
+        <nav aria-label="主要ページ" className="flex flex-wrap gap-x-4 gap-y-2">
+          <Link href="/" className="underline-offset-4 hover:underline">
+            ホーム
           </Link>
-        </p>
+          <Link href="/#market-shijou-sei" className="underline-offset-4 hover:underline">
+            卸1kg（都日報）
+          </Link>
+          <Link href="/#market-ota" className="underline-offset-4 hover:underline">
+            大田の市況
+          </Link>
+          <Link href="/column/market" className="underline-offset-4 hover:underline">
+            コラム・相場
+          </Link>
+          <Link href="/about" className="underline-offset-4 hover:underline">
+            サイトについて
+          </Link>
+        </nav>
         <p className="text-[10px] text-emerald-300/50">© {new Date().getFullYear()} 旬と相場のメモ帳</p>
       </div>
     </footer>

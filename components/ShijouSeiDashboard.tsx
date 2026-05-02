@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
-import type { SeiCsvLineSummary, ShijouSeiDashboardPayload } from "@/lib/shijou-nippo/types";
-import { RETAIL_MARKUP } from "@/lib/shijou-nippo/retail-estimate";
+import type { SeiCsvLineSummary, SeiItemRetailRow, ShijouSeiDashboardPayload } from "@/lib/shijou-nippo/types";
 import { seiZenIndexUrl } from "@/lib/shijou-nippo/url";
 
 function yenCell(v: number | null): string {
@@ -10,6 +9,13 @@ function yenCell(v: number | null): string {
 
 function linePriceCell(y: number | null): string {
   return y != null ? y.toLocaleString() : "—";
+}
+
+function pieceHintCell(row: SeiItemRetailRow): string {
+  if (row.typicalPieceGrams == null || row.typicalPieceUnitLabel == null) return "—";
+  const yen =
+    row.wholesaleYenForTypicalPiece != null ? `卸ベースで約${row.wholesaleYenForTypicalPiece.toLocaleString()}円分` : "—";
+  return `約${row.typicalPieceGrams}g（${row.typicalPieceUnitLabel}）／${yen}`;
 }
 
 function CsvLinesDetail({ lines }: { lines: SeiCsvLineSummary[] }) {
@@ -62,7 +68,9 @@ export function ShijouSeiDashboard({ data, id }: { data: ShijouSeiDashboardPaylo
     >
       <div className="flex flex-wrap items-start justify-between gap-3 border-b border-sky-900/10 pb-4 dark:border-sky-100/10">
         <div>
-          <h2 className="text-base font-semibold text-emerald-950 dark:text-emerald-50">東京都中央卸売（青果）各市場・卸単価と小売目安</h2>
+          <h2 className="text-base font-semibold text-emerald-950 dark:text-emerald-50">
+            東京都・青果の卸売参考（1kgあたりの円＋代表重量からの換算）
+          </h2>
           <p className="mt-1 text-xs leading-relaxed text-emerald-800/85 dark:text-emerald-200/75">
             リクエスト日（URL・基準日）:{" "}
             <time dateTime={data.requestedDateIso} className="font-semibold">
@@ -91,25 +99,24 @@ export function ShijouSeiDashboard({ data, id }: { data: ShijouSeiDashboardPaylo
 
       <div className="mt-4 rounded-xl bg-sky-50/60 p-4 text-[11px] leading-relaxed text-emerald-950/90 dark:bg-sky-950/25 dark:text-emerald-100/78">
         <p>
-          データは東京都「
+          <strong className="font-semibold">メインは「1kgあたりいくら（卸の参考）」</strong>です。東京都「
           <a href={zenUrl} className="underline-offset-2 hover:underline" target="_blank" rel="noopener noreferrer">
             デジタル市場日報
           </a>
-          」公開の <strong className="font-semibold">Sei_K1〜K9 CSV</strong>（青果・各市場）を Shift_JIS で取得しています。
-          表の <strong className="font-semibold">卸高／卸中／卸安（円/kg）</strong> は、各行の価格÷単位キロを<strong className="font-semibold">卸売数量で加重平均</strong>した参考値です。
+          」の Sei_K1〜K9 CSV を読み、高・中・安を単位キロで割って<strong className="font-semibold">卸売数量で加重平均</strong>した値です。
         </p>
         <p className="mt-2">
-          各行の下の <strong className="font-semibold">「日報の詳しい行」</strong> を開くと、CSVどおりの{" "}
-          <strong className="font-semibold">産地・販売方法・単位キロ・卸売数量・高・中・安（円）</strong> が見られます。
-          スーパー1個目安は仕入れから棚まで約 <strong className="font-semibold">×{RETAIL_MARKUP}</strong> のみ反映した粗い換算です。
+          <strong className="font-semibold">「約○g → 卸ベースで約○円分」</strong>は、一般的な1個・1本の<strong className="font-semibold">目安グラム</strong>に、
+          その行の<strong className="font-semibold">卸の円/kg（中値ベース）</strong>を掛けただけです。
+          <strong className="font-semibold">スーパーの値札・税込・特売は店によって決まり、この数字では表せません。</strong>
         </p>
         <p className="mt-2">
-          <strong className="font-semibold">キャベツ</strong>の M/L/2L は従来どおり（品種表記が無い日は同一卸単価から玉体重のみ差し替え）。
+          キャベツの M/L/2L は玉の目安重量（kg）だけ変えて同じ計算です（品種欄にサイズが無い日は全体平均の円/kgを流用）。
         </p>
       </div>
 
       <div className="mt-5 overflow-x-auto">
-        <table className="min-w-[1080px] w-full border-collapse text-left text-xs">
+        <table className="min-w-[1120px] w-full border-collapse text-left text-xs">
           <thead>
             <tr className="border-b border-sky-900/15 text-[10px] font-semibold uppercase tracking-wide text-sky-800 dark:border-sky-100/15 dark:text-sky-300">
               <th className="py-2 pr-3">市場</th>
@@ -118,8 +125,8 @@ export function ShijouSeiDashboard({ data, id }: { data: ShijouSeiDashboardPaylo
               <th className="py-2 pr-3">卸高（円/kg）</th>
               <th className="py-2 pr-3">卸中（円/kg）</th>
               <th className="py-2 pr-3">卸安（円/kg）</th>
-              <th className="py-2 pr-3">小売目安</th>
-              <th className="py-2">換算メモ</th>
+              <th className="py-2 pr-3 max-w-[260px]">代表重量→卸ベース（店頭ではない）</th>
+              <th className="py-2 max-w-[160px]">集計メモ</th>
             </tr>
           </thead>
           <tbody className="text-emerald-950 dark:text-emerald-50">
@@ -132,10 +139,8 @@ export function ShijouSeiDashboard({ data, id }: { data: ShijouSeiDashboardPaylo
                   <td className="py-2.5 pr-3 align-top tabular-nums">{yenCell(row.wholesaleHighYenPerKg)}</td>
                   <td className="py-2.5 pr-3 align-top tabular-nums">{yenCell(row.wholesaleMidYenPerKg)}</td>
                   <td className="py-2.5 pr-3 align-top tabular-nums">{yenCell(row.wholesaleLowYenPerKg)}</td>
-                  <td className="py-2.5 pr-3 align-top tabular-nums">
-                    {row.retailYenPerPieceEst != null ? `約${row.retailYenPerPieceEst.toLocaleString()}円` : "—"}
-                  </td>
-                  <td className="max-w-[220px] py-2.5 align-top text-[10px] leading-snug text-emerald-800/88 dark:text-emerald-200/75">{row.detailNote}</td>
+                  <td className="max-w-[260px] py-2.5 pr-3 align-top text-[11px] leading-snug">{pieceHintCell(row)}</td>
+                  <td className="max-w-[160px] py-2.5 align-top text-[10px] leading-snug text-emerald-800/88 dark:text-emerald-200/75">{row.detailNote}</td>
                 </tr>
                 <tr className="border-b border-emerald-900/15 bg-sky-50/40 dark:border-emerald-100/15 dark:bg-emerald-950/60">
                   <td className="px-3 py-3" colSpan={8}>

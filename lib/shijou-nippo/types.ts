@@ -46,8 +46,12 @@ export type SeiItemRetailRow = {
   wholesaleLowYenPerKg: number | null;
   /** @deprecated wholesaleMidYenPerKg と同一。後方互換のため残す */
   wholesaleYenPerKg: number | null;
-  /** 一般的な小売の目安（倍率のみ機械的に反映、実店舗とは大きく異なる場合あり） */
-  retailYenPerPieceEst: number | null;
+  /** 1個・1本分の代表重量（グラム）。キャベツは玉サイズの目安kg換算 */
+  typicalPieceGrams: number | null;
+  /** 「中玉1個」「1本」など */
+  typicalPieceUnitLabel: string | null;
+  /** 卸の円/kg（中値ベース）× 代表重量。店頭価格ではない */
+  wholesaleYenForTypicalPiece: number | null;
   detailNote: string;
   /** この集計に対応する日報行（数量上位・高・中・安はCSV表記のまま円） */
   csvTopLines: SeiCsvLineSummary[];

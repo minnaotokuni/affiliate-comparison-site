@@ -53,7 +53,7 @@ export default async function HomePage() {
             ·
           </span>
           <a href="#market-shijou-sei" className="font-medium text-sky-950 underline-offset-4 hover:underline dark:text-sky-100">
-            都の市場日報（高・中・安・明細）
+            都の卸（1kg・代表g）
           </a>
         </nav>
       </div>

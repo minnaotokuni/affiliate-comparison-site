@@ -63,6 +63,7 @@ export function OtaMarketDashboard({ data, id }: { data: OtaDashboardPayload; id
           ）経由で<strong className="font-semibold">東京都中央卸売市場・大田（13310）</strong>
           として取得しています。<strong className="font-semibold">東京青果がPDFで公開している相場表とはレイアウト・タイミングが異なり、同一ではありません。</strong>
           価格は取引単位（量目・等級）により変動し、小売店の売価や契約価格を保証するものではありません。
+          <strong className="font-semibold">スーパーの値段は店・地域・特売で決まり、この表は卸売参考です。</strong>
         </p>
         <p className="mt-2">
           <strong className="font-semibold">週・月・年の比較</strong>はリポジトリ内{" "}
