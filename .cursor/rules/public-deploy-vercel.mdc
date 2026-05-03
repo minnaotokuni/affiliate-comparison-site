@@ -1,0 +1,39 @@
+---
+description: ユーザーが「公開して」「本番に」「デプロイ」などと言ったときの Vercel 本番反映手順（確認してから実行）
+alwaysApply: true
+---
+
+# 本番公開（Vercel）
+
+ユーザーが **公開・本番・デプロイ・Vercel に上げて** などと依頼したら、**推測で終わらせず**次を順に実施する。
+
+## 1. ビルド確認
+
+- リポジトリルートで `npm run build` を実行し、成功するまで修正する。
+
+## 2. Git
+
+- `git status` で未コミットがあれば、内容に応じてコミットして `main` を `origin` に push する（空コミット `--allow-empty` は「再デプロイだけ」のときに可）。
+
+## 3. Vercel CLI
+
+- `npx vercel@latest whoami` でログイン確認。失敗なら `npx vercel login` をユーザーに案内。
+- プロジェクト未リンクなら（`.vercel/project.json` が無いなど）  
+  `npx vercel@latest link --yes --project affiliate-comparison-site`  
+  （チームは `duckgain17-5961s-projects` 側でリンクされる想定）
+
+## 4. 本番デプロイ
+
+- `npx vercel@latest deploy --prod --yes` をリポジトリルートで実行する。
+- ログに **Aliased / Production** と **`https://affiliate-comparison-site-alpha.vercel.app`** が出たことを確認する。
+
+## 5. 反映確認（可能なら）
+
+- 取得ツールや `curl` で本番 URL の HTML／タイトルを確認し、期待する文言が含まれるか見る。
+
+## 6. ユーザーへの返答
+
+- **共有用 URL** は `https://affiliate-comparison-site-alpha.vercel.app` を必ずフルで書く。
+- GitHub の push だけでは本番が追従しないことがあったため、**CLI の `--prod` デプロイを既定の完了条件**とする（ダッシュボードの Git 連携は補助）。
+
+`.vercel/` は gitignore 済み。コミットしない。

@@ -22,7 +22,10 @@
 
 # misc
 .DS_Store
-.cursor/
+# Cursor のローカル状態は無視するが、エージェント向けルールは共有する
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
 *.pem
 
 # debug
