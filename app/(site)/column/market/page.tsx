@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { AnchorSection } from "@/components/AnchorSection";
 import { InPageJumpButtons } from "@/components/InPageJumpButtons";
 import { LegalNotice } from "@/components/LegalNotice";
+import { AffiliateRakutenProductOnionIfMatch } from "@/components/AffiliateRakutenProductOnion";
+import { AffiliateRakutenProduceStrip } from "@/components/AffiliateRakutenProduceStrip";
+import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProductCookDo";
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
 import { latestMarket, type SeasonalFruitEat, type ValueVegetableEat } from "@/lib/columns/market-weekly";
 import { marketDataDisclaimer } from "@/lib/legal-copy";
@@ -46,6 +49,8 @@ function ValueVegetableBlock({ item }: { item: ValueVegetableEat }) {
           <MarketRecipeCard key={recipe.title} recipe={recipe} recipeIndex={i + 1} />
         ))}
       </div>
+      <AffiliateRakutenProductOnionIfMatch vegetableName={item.name} />
+      <AffiliateRakutenProduceStrip keyword={item.name} />
     </article>
   );
 }
@@ -68,6 +73,7 @@ function SeasonalFruitBlock({ item }: { item: SeasonalFruitEat }) {
       <p className="mt-4 text-[11px] leading-relaxed text-emerald-800/75 dark:text-emerald-200/65">
         果物は追熟や品種差が出やすいので、無理にレシピにせず、そのまま味わうのがいちばんおいしいことが多いです。
       </p>
+      <AffiliateRakutenProduceStrip keyword={item.name} />
     </article>
   );
 }
@@ -134,6 +140,7 @@ export default function MarketColumnPage() {
               <ValueVegetableBlock key={item.name} item={item} />
             ))}
           </div>
+          <AffiliateRakutenProductCookDo />
         </AnchorSection>
 
         <AnchorSection id="market-fruit-eat" className="space-y-6">

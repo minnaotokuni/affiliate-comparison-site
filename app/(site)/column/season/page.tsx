@@ -3,6 +3,11 @@ import Link from "next/link";
 
 /** 日本時間の「いまの月」で3品を選ぶため、ビルド時固定にしない */
 export const dynamic = "force-dynamic";
+import { AffiliateRakutenProduceStrip } from "@/components/AffiliateRakutenProduceStrip";
+import { AffiliateRakutenProductAsparagus } from "@/components/AffiliateRakutenProductAsparagus";
+import { AffiliateRakutenProductFruitTomato } from "@/components/AffiliateRakutenProductFruitTomato";
+import { AffiliateRakutenProductTomatoIchioshi } from "@/components/AffiliateRakutenProductTomatoIchioshi";
+import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProductCookDo";
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
 import { VeggieIcon } from "@/components/VeggieIcon";
 import { fruitSpotlights } from "@/lib/columns/fruit-spotlights";
@@ -135,10 +140,20 @@ export default function SeasonColumnPage() {
                 </div>
               </div>
             ) : null}
+            {pick.slug === "asparagus" ? <AffiliateRakutenProductAsparagus /> : null}
+            {pick.slug === "fruit-tomato" || pick.slug === "tomato" || pick.slug === "mini-tomato" ? (
+              <>
+                <AffiliateRakutenProductFruitTomato />
+                <AffiliateRakutenProductTomatoIchioshi />
+              </>
+            ) : null}
+            <AffiliateRakutenProduceStrip keyword={pick.name} />
           </section>
           );
         })}
       </div>
+
+      <AffiliateRakutenProductCookDo />
 
       <section
         id="season-fruit-index"

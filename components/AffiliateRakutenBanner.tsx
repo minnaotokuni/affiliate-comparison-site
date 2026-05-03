@@ -24,16 +24,31 @@ function RakutenA8AdBlock({
   bannerSrc,
   bannerAlt,
   pixelSrc,
+  variant = "standard",
 }: {
   label: string;
   linkHref: string;
   bannerSrc: string;
   bannerAlt: string;
   pixelSrc: string;
+  variant?: "standard" | "featured";
 }) {
+  const shell =
+    variant === "featured"
+      ? "relative rounded-xl border-2 border-amber-400/50 bg-emerald-900/55 px-4 py-4 shadow-lg shadow-black/30 ring-2 ring-amber-300/30 sm:px-6 sm:py-5"
+      : "relative rounded-lg border border-amber-400/30 bg-emerald-900/35 px-3 py-3 ring-1 ring-amber-500/15";
+  const imgClass =
+    variant === "featured"
+      ? "max-h-28 w-auto max-w-full border-0 sm:max-h-36 md:max-h-none md:max-w-[min(100%,728px)]"
+      : "max-h-24 max-w-full border-0 sm:max-h-none";
+  const labelClass =
+    variant === "featured"
+      ? "mb-2.5 text-[11px] font-semibold uppercase tracking-wide text-amber-50"
+      : "mb-2 text-[10px] font-semibold uppercase tracking-wide text-amber-100/95";
+
   return (
-    <div className="relative rounded-lg border border-amber-400/30 bg-emerald-900/35 px-3 py-3 ring-1 ring-amber-500/15">
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-amber-100/95">{label}</p>
+    <div className={shell}>
+      <p className={labelClass}>{label}</p>
       <a
         href={linkHref}
         target="_blank"
@@ -41,7 +56,7 @@ function RakutenA8AdBlock({
         className="inline-block max-w-full outline-offset-2 transition-opacity hover:opacity-95 focus-visible:ring-2 focus-visible:ring-amber-400/60"
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- 第三者計測付きバナー */}
-        <img src={bannerSrc} alt={bannerAlt} className="max-h-24 max-w-full border-0 sm:max-h-none" loading="lazy" decoding="async" />
+        <img src={bannerSrc} alt={bannerAlt} className={imgClass} loading="lazy" decoding="async" />
       </a>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -56,8 +71,8 @@ function RakutenA8AdBlock({
   );
 }
 
-/** 楽天市場（A8） */
-export function AffiliateRakutenBanner() {
+/** 楽天市場（A8）。`featured` はヘッダー直下など目立つ枠向け */
+export function AffiliateRakutenBanner({ variant = "standard" }: { variant?: "standard" | "featured" } = {}) {
   return (
     <RakutenA8AdBlock
       label="PR · 広告（楽天市場）"
@@ -65,6 +80,7 @@ export function AffiliateRakutenBanner() {
       bannerSrc={ICHIBA_BANNER_IMG}
       bannerAlt="楽天市場"
       pixelSrc={ICHIBA_PIXEL}
+      variant={variant}
     />
   );
 }
