@@ -1,0 +1,36 @@
+# main へ push するたびに Vercel の「デプロイフック」を叩き、本番ビルドを走らせます。
+# （ダッシュボードの自動デプロイと別に、確実に再デプロイしたいとき用）
+#
+# ▼ 事前設定（一度だけ）
+# 1) https://vercel.com/dashboard で対象プロジェクトを開く
+# 2) Settings → Git → Deploy Hooks → 「Create Hook」
+#    - Branch: main  /  Hook Name: 任意（例: github-actions-main）
+# 3) 表示された URL をコピーする
+# 4) GitHub: https://github.com/takuya-watanabeaaa/affiliate-comparison-site/settings/secrets/actions
+#    → New repository secret → Name: VERCEL_DEPLOY_HOOK / Secret: （コピーした URL）
+#
+# 手動実行: Actions タブ → 「Vercel deploy hook」→ Run workflow
+
+name: Vercel deploy hook
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: POST deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::GitHub にシークレット VERCEL_DEPLOY_HOOK がありません。"
+            echo "Vercel → 対象プロジェクト → Settings → Git → Deploy Hooks で main 用フックを作成し、"
+            echo "https://github.com/takuya-watanabeaaa/affiliate-comparison-site/settings/secrets/actions で登録してください。"
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"
+          echo "Deploy hook accepted."
