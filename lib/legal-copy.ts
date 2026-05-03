@@ -7,7 +7,7 @@ export const pharmaRelatedDisclaimer = `
 `;
 
 export const marketDataDisclaimer = `
-相場・価格の感触は、取材時点・地域・店舗・品質により大きく異なります。実際の売値・仕入れは参考情報としてご確認ください。
+相場・価格の感触は、取材時点・地域・店舗・品質により大きく異なります。実際の店の売値は参考情報としてご確認ください。
 `;
 
 export const affiliateDisclaimer =

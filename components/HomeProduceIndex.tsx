@@ -15,9 +15,7 @@ export function HomeProduceIndex() {
         主要な野菜・果物から見る
       </h2>
       <p className="mt-2 max-w-2xl text-xs leading-relaxed text-emerald-800/80 dark:text-emerald-200/70">
-        野菜は当サイトの野菜別ガイドへ、果物は旬ナビの「主要果物の見どころ」へジャンプします。品目の選定は、作況調査や野菜ナビ・果物ナビなどでよく扱われる代表例を参考にしています（産地・品種・年で変わります）。
-        一覧のアイコンは、いただいた参照シートを<strong className="font-semibold text-emerald-950 dark:text-emerald-50">16列×7行</strong>
-        で区切り、上下左右に余白を取って切り出しています（隣の品名が混ざらないように調整）。果物の品種の説明は旬ナビページで詳しくしています。
+        野菜は各品のガイドへ、果物は旬ナビの「主要果物の見どころ」へジャンプします。掲載品目は公的な作況や流通でよく取り上げられる代表例を中心にしています（産地・品種・年で変わります）。品種の細かい話は、野菜は各ガイド・果物は旬ナビで補足しています。
       </p>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">

@@ -1,9 +1,12 @@
 import { topCsvLinesByVolume, volumeWeightedPricePerKg, volumeWeightedYenPerKg } from "./aggregate";
 import { SHIJOU_TRACKED_VEG_ITEMS, type ShijouTrackedVeg } from "./config";
 import { fetchSeiMarketCsv } from "./fetch";
+import { latestTradeIsoInHistory, loadShijouHistory, shijouRowKey, type ShijouSeiHistoryCompact, type ShijouSeiHistoryFile } from "./history";
+import { longDateLabelJa } from "@/lib/jst-date";
 import { SHIJOU_SEI_MARKETS } from "./markets";
 import { parseCabbageSize, parseReportMeta, parseSeiVegetableRows } from "./parse-sei-csv";
 import { CABBAGE_HEAD_KG, PIECE_PROFILES, wholesaleYenForPieceKg } from "./retail-estimate";
+import { buildShijouSpark7Days } from "./spark-history";
 import { seiZenIndexUrl } from "./url";
 import type { CabbageSizeLabel, SeiDetailRow, SeiItemRetailRow, ShijouMarketId, ShijouSeiDashboardError, ShijouSeiDashboardPayload } from "./types";
 
@@ -72,8 +75,67 @@ function cabbageRetailRows(marketLabel: string, marketId: ShijouMarketId, cabbag
       wholesaleYenForTypicalPiece: pieceYen,
       detailNote,
       csvTopLines: topCsvLinesByVolume(source, 6),
+      historySpark7d: [],
     };
   });
+}
+
+function compactToRetailRow(
+  marketLabel: string,
+  marketId: ShijouMarketId,
+  itemName: string,
+  cabbageSize: CabbageSizeLabel | null,
+  compact: ShijouSeiHistoryCompact,
+  tradeIso: string,
+): SeiItemRetailRow {
+  const typicalGrams =
+    compact.typicalPieceGrams ??
+    (cabbageSize != null ? Math.round(CABBAGE_HEAD_KG[cabbageSize] * 1000) : PIECE_PROFILES[itemName]?.grams ?? null);
+
+  const typicalPieceUnitLabel =
+    cabbageSize != null ? `${cabbageSize}玉の目安` : (PIECE_PROFILES[itemName]?.unitLabel ?? null);
+
+  const mid = compact.wholesaleMidYenPerKg;
+  const kg = typicalGrams != null ? typicalGrams / 1000 : null;
+  const pieceYen =
+    compact.wholesaleYenForTypicalPiece ??
+    (mid != null && kg != null ? wholesaleYenForPieceKg(mid, kg) : null);
+
+  return {
+    marketLabel,
+    marketId,
+    itemName,
+    cabbageSize,
+    wholesaleHighYenPerKg: compact.wholesaleHighYenPerKg,
+    wholesaleMidYenPerKg: compact.wholesaleMidYenPerKg,
+    wholesaleLowYenPerKg: compact.wholesaleLowYenPerKg,
+    wholesaleYenPerKg: compact.wholesaleMidYenPerKg,
+    typicalPieceGrams: typicalGrams,
+    typicalPieceUnitLabel,
+    wholesaleYenForTypicalPiece: pieceYen,
+    detailNote: `保存済みスナップショット（取引日 ${tradeIso}）。当日のCSVを取得できなかったため、この履歴を表示しています。`,
+    csvTopLines: [],
+    historySpark7d: [],
+  };
+}
+
+/** 履歴ファイルの指定取引日で、追跡品目の行を組み立てる（CSV詳細行は無し） */
+function buildRetailRowsFromHistory(hist: ShijouSeiHistoryFile, tradeIso: string): SeiItemRetailRow[] {
+  const out: SeiItemRetailRow[] = [];
+  for (const meta of SHIJOU_SEI_MARKETS) {
+    for (const sz of SIZES) {
+      const key = shijouRowKey(meta.id, "キャベツ", sz);
+      const compact = hist.byRowKey[key]?.[tradeIso];
+      if (compact) out.push(compactToRetailRow(meta.label, meta.id, "キャベツ", sz, compact, tradeIso));
+    }
+    for (const name of SHIJOU_TRACKED_VEG_ITEMS) {
+      if (name === "キャベツ") continue;
+      const key = shijouRowKey(meta.id, name, null);
+      const compact = hist.byRowKey[key]?.[tradeIso];
+      if (compact) out.push(compactToRetailRow(meta.label, meta.id, name, null, compact, tradeIso));
+    }
+  }
+  return out;
 }
 
 function simpleItemRow(
@@ -104,6 +166,7 @@ function simpleItemRow(
     wholesaleYenForTypicalPiece: pieceYen,
     detailNote: "卸の高・中・安を数量加重して円/kg換算。代表重量は一般的な目安",
     csvTopLines: topCsvLinesByVolume(itemRows, 6),
+    historySpark7d: [],
   };
 }
 
@@ -138,10 +201,32 @@ export async function getShijouSeiRetailDashboard(requestedDateIso: string): Pro
   }
 
   if (outRows.length === 0) {
+    const histFallback = loadShijouHistory();
+    const latestIso = latestTradeIsoInHistory(histFallback);
+    if (latestIso) {
+      const fromHist = buildRetailRowsFromHistory(histFallback, latestIso);
+      if (fromHist.length > 0) {
+        const sorted = sortRetailRows(fromHist);
+        const rowsWithSpark = sorted.map((row) => ({
+          ...row,
+          historySpark7d: buildShijouSpark7Days(requestedDateIso, row, histFallback, latestIso),
+        }));
+        return {
+          ok: true,
+          requestedDateIso,
+          reportDateIso: latestIso,
+          reportDateLabel: longDateLabelJa(latestIso),
+          referenceMismatch: requestedDateIso !== latestIso,
+          usedHistoryFallback: true,
+          rows: rowsWithSpark,
+          fetchedAt: new Date().toISOString(),
+        };
+      }
+    }
     return {
       ok: false,
       message:
-        "この日付の青果・各市場CSVを取得できませんでした（休場・未掲載・通信エラーなど）。日付を変えて公開ページを確認してください。",
+        "この日付の青果・各市場CSVを取得できず、保存済みの履歴（data/shijou-sei-history.json）にも参照できるデータがありませんでした。休場・未掲載・通信エラー、またはまだスナップショットが無い可能性があります。",
       requestedDateIso,
     };
   }
@@ -150,13 +235,20 @@ export async function getShijouSeiRetailDashboard(requestedDateIso: string): Pro
   const reportLabel = reportMeta?.label ?? null;
   const referenceMismatch = Boolean(reportIso && reportIso !== requestedDateIso);
 
+  const hist = loadShijouHistory();
+  const sorted = sortRetailRows(outRows);
+  const rowsWithSpark = sorted.map((row) => ({
+    ...row,
+    historySpark7d: buildShijouSpark7Days(requestedDateIso, row, hist, reportIso),
+  }));
+
   return {
     ok: true,
     requestedDateIso,
     reportDateIso: reportIso,
     reportDateLabel: reportLabel,
     referenceMismatch,
-    rows: sortRetailRows(outRows),
+    rows: rowsWithSpark,
     fetchedAt: new Date().toISOString(),
   };
 }

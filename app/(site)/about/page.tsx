@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:max-w-4xl lg:px-8">
+    <article className="mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">About</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">サイトについて</h1>
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <section>
           <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">運営のスタンス</h2>
           <p className="mt-4">
-            仕事で培った野菜・果物の現場感を、副業として文章化しています。競合が多い一般的な「大全」サイトではなく、週次の相場メモ・旬の整理・選果の視点など、個人の観測を軸にします。
+            Web の作り方も公開の仕方も、いまさらながら手探りです。拙いところも出てくると思いますが、徐々に形にしていきますので、見守っていただけるとうれしいです。
           </p>
         </section>
 

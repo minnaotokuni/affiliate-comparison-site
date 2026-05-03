@@ -1,193 +1,183 @@
 import type { Metadata } from "next";
-import { AnchorSection } from "@/components/AnchorSection";
-import { InPageJumpButtons } from "@/components/InPageJumpButtons";
+import Link from "next/link";
+
+/** 日本時間の「いまの月」で3品を選ぶため、ビルド時固定にしない */
+export const dynamic = "force-dynamic";
+import { MarketRecipeCard } from "@/components/MarketRecipeCard";
+import { VeggieIcon } from "@/components/VeggieIcon";
 import { fruitSpotlights } from "@/lib/columns/fruit-spotlights";
 import {
-  fruitSeasonHints,
-  seasonIntro,
-  seasonalLanes,
-  trendingProduce,
-  vegSeasonHints,
-} from "@/lib/columns/season-primer";
+  seasonDeepPicksForMonth,
+  seasonPickAnchorId,
+  vegetablesGuideAnchorSlug,
+} from "@/lib/columns/season-deep-picks";
+import { isoDateInJapan } from "@/lib/jst-date";
 
 export const metadata: Metadata = {
   title: "旬ナビ",
-  description: "野菜・果物の旬の捉え方と、売場で役立つ見分けのヒント。",
+  description:
+    "いまおすすめの野菜・果物を3品だけ深く。選び方・調理のヒントに加え、品目ごとにレシピを3つずつ掲載しています。",
 };
 
 export default function SeasonColumnPage() {
-  return (
-    <article id="page-top" className="relative mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:max-w-4xl lg:px-8">
-      <InPageJumpButtons tocAnchorId="season-toc" />
+  const refIso = isoDateInJapan();
+  const month = Number(refIso.slice(5, 7)) || 1;
+  const deepPicks = seasonDeepPicksForMonth(month);
+  const featuredFruitSlugs = new Set(deepPicks.filter((p) => p.kind === "fruit").map((p) => p.slug));
+  const appendixFruits = fruitSpotlights.filter((f) => !featuredFruitSlugs.has(f.slug));
 
+  return (
+    <article
+      id="page-top"
+      className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14"
+    >
       <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">Season guide</p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">{seasonIntro.title}</h1>
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">
+          旬ナビ：いまおすすめ3品を深く
+        </h1>
+        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
+          全シーズンの一覧ではなく、<strong className="font-semibold text-emerald-950 dark:text-emerald-50">この時期に押さえたい3品</strong>
+          だけを長めにまとめています（日本時間の暦・
+          <time dateTime={refIso} className="tabular-nums">
+            {refIso}
+          </time>
+          基準）。産地・店・年で前後します。
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
+          野菜の品目別の栄養・糖度などは「
+          <Link href="/column/vegetables" className="font-medium underline-offset-2 hover:underline">
+            野菜別ガイド
+          </Link>
+          」のほうが詳しいです。
+        </p>
+        <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
+          各品目の下に、献立のローテーション用のレシピを3つずつ載せています（一般的な家庭調理の例です）。アレルギーがある食材は代替してください。
+        </p>
       </header>
 
-      <div className="mt-8 space-y-5 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">
-        {seasonIntro.paragraphs.map((p) => (
-          <p key={p}>{p}</p>
-        ))}
-      </div>
-
-      <details
-        open
-        id="season-toc"
-        className="sticky top-[var(--site-sticky-toc-top)] z-[5] mt-10 scroll-mt-[var(--site-scroll-padding)] rounded-2xl border border-emerald-900/10 bg-white/95 p-4 shadow-sm backdrop-blur-sm dark:border-emerald-100/10 dark:bg-emerald-950/95 sm:p-5"
+      <nav
+        className="sticky top-[var(--site-sticky-toc-top)] z-[5] mt-8 scroll-mt-[var(--site-scroll-padding)] rounded-xl border border-emerald-900/10 bg-white/95 p-4 text-sm backdrop-blur-sm dark:border-emerald-100/10 dark:bg-emerald-950/95"
+        aria-label="今月の3品へジャンプ"
       >
-        <summary className="cursor-pointer list-none text-xs font-semibold text-emerald-900 marker:content-none dark:text-emerald-100 [&::-webkit-details-marker]:hidden">
-          ページ内ジャンプ
-        </summary>
-        <nav className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs" aria-label="旬ナビの構成">
-          <a href="#season-calendar" className="text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200">
-            季節のレーン
-          </a>
-          <a href="#season-trending" className="text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200">
-            話題の品目
-          </a>
-          <a href="#season-major-fruits" className="text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200">
-            主要果物の見どころ
-          </a>
-          <a href="#season-veg" className="text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200">
-            野菜のヒント
-          </a>
-          <a href="#season-fruit" className="text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200">
-            果物のヒント
-          </a>
-        </nav>
-      </details>
-
-      <div className="relative z-10 mt-12 space-y-14">
-        <AnchorSection id="season-calendar" className="space-y-5">
-          <div className="flex items-center gap-2">
-            <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">季節のレーン（例）</h2>
-            <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {seasonalLanes.map((lane) => (
-              <div
-                key={lane.id}
-                className={`rounded-2xl border border-emerald-900/10 bg-gradient-to-br p-5 shadow-sm dark:border-emerald-100/10 ${lane.accent}`}
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">{lane.label}</h3>
-                  <span className="rounded-full bg-white/80 px-2 py-0.5 text-[10px] font-medium text-emerald-800 ring-1 ring-emerald-900/10 dark:bg-emerald-950/80 dark:text-emerald-200 dark:ring-emerald-100/15">
-                    {lane.months}
-                  </span>
-                </div>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">野菜</p>
-                <p className="mt-1 text-sm leading-relaxed text-emerald-900/88 dark:text-emerald-100/78">{lane.veg}</p>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wide text-amber-800 dark:text-amber-200">果物</p>
-                <p className="mt-1 text-sm leading-relaxed text-emerald-900/88 dark:text-emerald-100/78">{lane.fruit}</p>
-              </div>
-            ))}
-          </div>
-        </AnchorSection>
-
-        <AnchorSection id="season-trending" className="space-y-5">
-          <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">話題になりやすい品目</h2>
-          <p className="text-sm text-emerald-800/80 dark:text-emerald-200/65">
-            「話題」は売場の注目度の話であり、特定商品の推奨や効果を保証するものではありません。
-          </p>
-          <div className="grid gap-4 md:grid-cols-3">
-            {trendingProduce.map((t) => (
-              <div key={t.title} className="rounded-2xl border border-emerald-900/10 bg-white p-4 dark:border-emerald-100/10 dark:bg-emerald-950">
-                <span className="inline-block rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-900 dark:bg-emerald-900/70 dark:text-emerald-100">
-                  {t.tag}
-                </span>
-                <h3 className="mt-3 text-base font-semibold text-emerald-950 dark:text-emerald-50">{t.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">{t.body}</p>
-              </div>
-            ))}
-          </div>
-        </AnchorSection>
-
-        <AnchorSection id="season-major-fruits" className="space-y-5">
-          <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">主要果物の見どころ</h2>
-          <p className="text-sm leading-relaxed text-emerald-800/85 dark:text-emerald-200/75">
-            トップページの一覧から飛べるよう、代表的な果物ごとにまとめています。品種の並べ方や旬の感じ方は、
-            <a
-              href="https://www.kudamononavi.com/"
-              className="font-medium text-emerald-800 underline-offset-2 hover:underline dark:text-emerald-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              果物ナビ
+        <p className="text-xs font-semibold text-emerald-800 dark:text-emerald-200">ページ内ジャンプ</p>
+        <ul className="mt-2 flex flex-col gap-2 text-emerald-900 dark:text-emerald-50">
+          {deepPicks.map((p) => (
+            <li key={p.slug}>
+              <a href={`#${seasonPickAnchorId(p)}`} className="underline-offset-2 hover:underline">
+                {p.name}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="#season-fruit-index" className="text-emerald-800/85 underline-offset-2 hover:underline dark:text-emerald-200/75">
+              ほかの果物（短いダイジェスト）
             </a>
-            の季節・品種カテゴリとも読み比べられるようにしています（特定サイトの推奨ではありません）。旬のピークは産地・品種・年でずれます。
-          </p>
-          <div className="space-y-4">
-            {fruitSpotlights.map((f) => (
-              <AnchorSection
-                key={f.slug}
-                id={`fruit-${f.slug}`}
-                className="rounded-2xl border border-emerald-900/10 bg-white p-4 shadow-sm dark:border-emerald-100/10 dark:bg-emerald-950 sm:p-5"
-              >
-                <h3 className="text-base font-semibold text-emerald-950 dark:text-emerald-50">{f.name}</h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-amber-900/80 dark:text-amber-200/80">
-                  売場の目安
-                </p>
-                <ul className="mt-2 space-y-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">
-                  {f.tips.map((t) => (
-                    <li key={t} className="border-l-2 border-amber-500/35 pl-3">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-emerald-800 dark:text-emerald-200">
-                  代表的な品種（例）
-                </p>
-                <ul className="mt-2 space-y-3 text-sm leading-relaxed text-emerald-900/88 dark:text-emerald-100/78">
-                  {f.varieties.map((v) => (
-                    <li key={v.name} className="border-l-2 border-emerald-500/35 pl-3">
-                      <span className="font-semibold text-emerald-950 dark:text-emerald-50">{v.name}</span>
-                      <span className="text-emerald-900/90 dark:text-emerald-100/80"> — {v.note}</span>
-                    </li>
-                  ))}
-                </ul>
-              </AnchorSection>
-            ))}
-          </div>
-        </AnchorSection>
+          </li>
+        </ul>
+      </nav>
 
-        <AnchorSection id="season-veg" className="space-y-8">
-          <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">野菜のヒント</h2>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {vegSeasonHints.map((block) => (
-              <div key={block.name} className="rounded-2xl border border-emerald-900/10 bg-white p-5 dark:border-emerald-100/10 dark:bg-emerald-950">
-                <h3 className="text-base font-semibold text-emerald-900 dark:text-emerald-100">{block.name}</h3>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">
-                  {block.tips.map((t) => (
-                    <li key={t} className="border-l-2 border-emerald-500/30 pl-3">
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+      <div className="mt-12 space-y-16">
+        {deepPicks.map((pick) => {
+          const vegGuideSlug = vegetablesGuideAnchorSlug(pick);
+          return (
+          <section
+            key={pick.slug}
+            id={seasonPickAnchorId(pick)}
+            className="scroll-mt-[var(--site-scroll-padding)] rounded-2xl border border-emerald-900/10 bg-white p-5 shadow-sm dark:border-emerald-100/10 dark:bg-emerald-950 sm:p-6"
+          >
+            <div className="flex flex-wrap items-start gap-3 border-b border-emerald-900/8 pb-4 dark:border-emerald-100/10">
+              <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-900/40">
+                <VeggieIcon slug={pick.slug} size={40} title="" />
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
+                  {pick.kind === "fruit" ? "果物" : "野菜"}
+                </p>
+                <h2 className="text-xl font-semibold text-emerald-950 dark:text-emerald-50">{pick.name}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-emerald-900/88 dark:text-emerald-100/82">{pick.hook}</p>
+                {vegGuideSlug ? (
+                  <Link
+                    href={`/column/vegetables#${vegGuideSlug}`}
+                    className="mt-3 inline-block text-xs font-medium text-emerald-700 underline-offset-2 hover:underline dark:text-emerald-300"
+                  >
+                    野菜別ガイドの同一品目へ →
+                  </Link>
+                ) : null}
               </div>
-            ))}
-          </div>
-        </AnchorSection>
+            </div>
 
-        <AnchorSection id="season-fruit" className="space-y-8">
-          <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">果物のヒント</h2>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {fruitSeasonHints.map((block) => (
-              <div key={block.name} className="rounded-2xl border border-emerald-900/10 bg-white p-5 dark:border-emerald-100/10 dark:bg-emerald-950">
-                <h3 className="text-base font-semibold text-emerald-900 dark:text-emerald-100">{block.name}</h3>
-                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">
-                  {block.tips.map((t) => (
-                    <li key={t} className="border-l-2 border-amber-500/35 pl-3">
-                      {t}
-                    </li>
+            <div className="mt-6 space-y-8">
+              {pick.sections.map((sec) => (
+                <div key={sec.heading}>
+                  <h3 className="text-sm font-semibold text-emerald-950 dark:text-emerald-50">{sec.heading}</h3>
+                  <div className="mt-3 space-y-3 text-sm leading-relaxed text-emerald-900/88 dark:text-emerald-100/80">
+                    {sec.paragraphs.map((para) => (
+                      <p key={para}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {pick.recipes && pick.recipes.length > 0 ? (
+              <div className="mt-8 space-y-4 border-t border-emerald-900/10 pt-8 dark:border-emerald-100/10">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
+                  レシピ（{pick.recipes.length}つ）
+                </p>
+                <p className="text-xs leading-relaxed text-emerald-800/80 dark:text-emerald-200/70">
+                  いま取り上げている品目だけの例です。下の「ほかの果物」一覧にはレシピは載せていません。
+                </p>
+                <div className="space-y-4">
+                  {pick.recipes.map((recipe, i) => (
+                    <MarketRecipeCard key={`${pick.slug}-${recipe.title}`} recipe={recipe} recipeIndex={i + 1} />
                   ))}
-                </ul>
+                </div>
               </div>
-            ))}
-          </div>
-        </AnchorSection>
+            ) : null}
+          </section>
+          );
+        })}
       </div>
+
+      <section
+        id="season-fruit-index"
+        className="scroll-mt-[var(--site-scroll-padding)] mt-20 border-t border-emerald-900/10 pt-12 dark:border-emerald-100/10"
+      >
+        <h2 className="text-lg font-semibold text-emerald-950 dark:text-emerald-50">ほかの果物（短いダイジェスト）</h2>
+        <p className="mt-2 text-sm leading-relaxed text-emerald-800/85 dark:text-emerald-200/75">
+          トップページなどからリンクされる見出し用です。深掘りは上の「今月の3品」と「
+          <a
+            href="https://www.kudamononavi.com/"
+            className="font-medium underline-offset-2 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            果物ナビ
+          </a>
+          」も参照してください。
+        </p>
+        <ul className="mt-8 space-y-6">
+          {appendixFruits.map((f) => (
+            <li
+              key={f.slug}
+              id={`fruit-${f.slug}`}
+              className="scroll-mt-[var(--site-scroll-padding)] rounded-xl border border-emerald-900/10 bg-white p-4 dark:border-emerald-100/10 dark:bg-emerald-950"
+            >
+              <div className="flex gap-3">
+                <VeggieIcon slug={f.slug} size={36} title="" />
+                <div className="min-w-0">
+                  <h3 className="text-base font-semibold text-emerald-950 dark:text-emerald-50">{f.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">{f.tips[0]}</p>
+                  {f.tips[1] ? (
+                    <p className="mt-2 text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/75">{f.tips[1]}</p>
+                  ) : null}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
     </article>
   );
 }

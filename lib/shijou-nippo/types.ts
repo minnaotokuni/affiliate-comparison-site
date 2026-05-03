@@ -23,6 +23,12 @@ export type SeiDetailRow = {
 export type CabbageSizeLabel = "M" | "L" | "2L";
 
 /** 日報CSVの1行相当（サイト上の「詳しい価格」用） */
+/** 基準日から見た過去7暦日の卸中値（円/kg）。未取得は null */
+export type SeiHistorySparkDay = {
+  date: string;
+  midYenPerKg: number | null;
+};
+
 export type SeiCsvLineSummary = {
   saleMethod: string;
   variety: string;
@@ -55,6 +61,8 @@ export type SeiItemRetailRow = {
   detailNote: string;
   /** この集計に対応する日報行（数量上位・高・中・安はCSV表記のまま円） */
   csvTopLines: SeiCsvLineSummary[];
+  /** data/shijou-sei-history.json と当日フェッチから構築（未取得日は null） */
+  historySpark7d: SeiHistorySparkDay[];
 };
 
 export type ShijouSeiDashboardPayload = {
@@ -64,6 +72,8 @@ export type ShijouSeiDashboardPayload = {
   reportDateIso: string | null;
   reportDateLabel: string | null;
   referenceMismatch: boolean;
+  /** 当日の各市場CSVが取れず、data/shijou-sei-history.json の最新日で代用したとき true */
+  usedHistoryFallback?: boolean;
   rows: SeiItemRetailRow[];
   fetchedAt: string;
 };

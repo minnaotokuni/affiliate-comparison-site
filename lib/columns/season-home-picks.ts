@@ -15,21 +15,21 @@ export type SeasonHomePick = {
 
 export const seasonHomePicks: SeasonHomePick[] = [
   {
-    slug: "strawberry",
-    name: "いちご",
-    kind: "果物",
-    deliciousNote: "春〜初夏は品種の入れ替わりで香りが楽しみやすい時期。甘酸っぱさのバランスがはっきりする頃です。",
+    slug: "asparagus",
+    name: "アスパラガス",
+    kind: "野菜",
+    deliciousNote: "春は芯がいちばん柔らかく、食べごろを感じやすい時期の代表例です（茹で・グリルどちらでも）。",
   },
   {
-    slug: "tomato",
-    name: "トマト",
+    slug: "fruit-tomato",
+    name: "フルーツトマト",
     kind: "野菜",
-    deliciousNote: "初夏に向けて露地・準露地の比率が増えやすく、甘みと酸味のバランスがはっきりする時期。これから本番に近づきやすい頃です。",
+    deliciousNote: "4〜5月ごろは糖度が乗りやすく味が締まりやすい時期があります。同じ銘柄でも時期で印象が変わることがあります。",
   },
   {
-    slug: "sweet-corn",
-    name: "スイートコーン",
+    slug: "mini-tomato",
+    name: "ミニトマト",
     kind: "野菜",
-    deliciousNote: "早い年は店頭に並び始める頃。粒の甘みと茹でたての香りが楽しみやすい時期に近づきます。",
+    deliciousNote: "春〜初夏は粒に甘みが乗りやすいことがあります。おつまみやサラダはもちろん、軽く焼いても。",
   },
 ];

@@ -2,8 +2,12 @@ import Link from "next/link";
 import { HomeMarketCardLink } from "@/components/HomeMarketCardLink";
 import { HomeProduceIndex } from "@/components/HomeProduceIndex";
 import { HomeSeasonCardLink } from "@/components/HomeSeasonCardLink";
+import { HomeTopLead } from "@/components/HomeTopLead";
 import { ShijouSeiDashboard, ShijouSeiDashboardError } from "@/components/ShijouSeiDashboard";
 import { OtaMarketDashboard, OtaMarketDashboardError } from "@/components/OtaMarketDashboard";
+import { buildOtaTopVoiceLines } from "@/lib/home/ota-top-voice";
+import { seasonalPickBlockForJapanCalendar } from "@/lib/home/seasonal-picks";
+import { activeWeeklySpotlight } from "@/lib/home/weekly-spotlight";
 import { isoDateInJapan, longDateLabelJa } from "@/lib/jst-date";
 import { getOtaMarketDashboard } from "@/lib/ota-market/service";
 import { getShijouSeiRetailDashboard } from "@/lib/shijou-nippo/service";
@@ -13,26 +17,23 @@ export default async function HomePage() {
   const refIso = isoDateInJapan();
   const refLabel = longDateLabelJa(refIso);
   const [ota, shijou] = await Promise.all([getOtaMarketDashboard(), getShijouSeiRetailDashboard(refIso)]);
+  const curatedSpotlight = activeWeeklySpotlight(refIso);
+  const seasonalBlock = seasonalPickBlockForJapanCalendar(refIso);
+  const otaVoiceLines = ota.ok ? buildOtaTopVoiceLines(ota.rows) : [];
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-6 pt-10 sm:px-6 lg:max-w-4xl lg:px-8 lg:pt-14">
+    <main className="mx-auto w-full max-w-[min(100%,100rem)] px-4 pb-6 pt-10 sm:px-6 lg:px-8 lg:pt-14">
       <div className="relative overflow-hidden rounded-3xl border border-emerald-900/10 bg-white px-6 py-10 shadow-sm shadow-emerald-900/5 dark:border-emerald-100/10 dark:bg-emerald-950 dark:shadow-black/30 sm:px-10">
         <div
           className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-emerald-400/15 blur-3xl dark:bg-emerald-500/10"
           aria-hidden
         />
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-700 dark:text-emerald-300">
-          旬と相場のメモ帳
+          野菜・果物の旬と相場メモ
         </p>
         <h1 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-4xl">
-          野菜・果物の旬・相場・選び方を、ひと目で押さえる。
+          直近の相場からのおすすめ品を中心に、旬と市況。
         </h1>
-        <p className="mt-5 max-w-xl text-sm leading-relaxed text-emerald-900/75 dark:text-emerald-100/70">
-          <strong className="font-semibold text-emerald-950 dark:text-emerald-50">旬</strong>の楽しみ方、
-          <strong className="font-semibold text-emerald-950 dark:text-emerald-50">直近の相場</strong>の感触、
-          <strong className="font-semibold text-emerald-950 dark:text-emerald-50">選び方・保存・食べ方</strong>
-          までを、できるだけわかりやすくまとめています。コラムや野菜別ガイドから、お買い物や献立づくりのヒントにお使いください。
-        </p>
         <p className="mt-5 text-sm text-emerald-800/90 dark:text-emerald-200/85">
           <span className="font-semibold text-emerald-950 dark:text-emerald-50">表示基準日（日本時間）</span>
           {": "}
@@ -43,20 +44,46 @@ export default async function HomePage() {
         </p>
         <nav
           className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-emerald-900/10 pt-6 text-sm dark:border-emerald-100/10"
-          aria-label="相場セクションへジャンプ"
+          aria-label="ページ内の主要セクションへ"
         >
-          <span className="text-xs font-semibold tracking-wide text-emerald-800 dark:text-emerald-200">相場はここ↓</span>
+          <a href="#home-market-main" className="text-xs font-semibold tracking-wide text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-200">
+            相場おすすめへ
+          </a>
+          <span className="text-emerald-500/55 dark:text-emerald-500/35" aria-hidden>
+            ·
+          </span>
+          <a href="#home-season-lead" className="text-xs font-semibold tracking-wide text-emerald-800 underline-offset-4 hover:underline dark:text-emerald-200">
+            旬ナビへ
+          </a>
+          <span className="text-emerald-500/55 dark:text-emerald-500/35" aria-hidden>
+            ·
+          </span>
+          <a href="#home-market-voice" className="font-medium text-emerald-900 underline-offset-4 hover:underline dark:text-emerald-100">
+            市況メモへ
+          </a>
+          <span className="text-emerald-500/55 dark:text-emerald-500/35" aria-hidden>
+            ·
+          </span>
           <a href="#market-ota" className="font-medium text-emerald-900 underline-offset-4 hover:underline dark:text-emerald-100">
-            大田（API・推移）
+            大田の表へ
           </a>
           <span className="text-emerald-500/55 dark:text-emerald-500/35" aria-hidden>
             ·
           </span>
           <a href="#market-shijou-sei" className="font-medium text-sky-950 underline-offset-4 hover:underline dark:text-sky-100">
-            都の卸（1kg・代表g）
+            相場（都日報）へ
           </a>
         </nav>
       </div>
+
+      <HomeTopLead
+        referenceIso={refIso}
+        referenceLabel={refLabel}
+        curated={curatedSpotlight}
+        seasonal={seasonalBlock}
+        otaVoiceLines={otaVoiceLines}
+        otaOk={ota.ok}
+      />
 
       {ota.ok ? (
         <OtaMarketDashboard id="market-ota" data={ota} />

@@ -84,6 +84,21 @@ export const vegetableVisualBySlug: Record<string, VegVisualStyle> = {
       "bg-gradient-to-br from-emerald-100/90 via-green-50 to-lime-50 dark:from-emerald-950/45 dark:via-green-950/30 dark:to-lime-950/25",
     iconRing: "ring-emerald-400/55 dark:ring-emerald-600/40",
   },
+  asparagus: {
+    cardGradient:
+      "bg-gradient-to-br from-lime-100/88 via-green-50 to-emerald-50 dark:from-lime-950/40 dark:via-green-950/28 dark:to-emerald-950/25",
+    iconRing: "ring-lime-400/55 dark:ring-lime-600/38",
+  },
+  "fruit-tomato": {
+    cardGradient:
+      "bg-gradient-to-br from-rose-100/90 via-red-50 to-orange-50 dark:from-rose-950/45 dark:via-red-950/30 dark:to-orange-950/25",
+    iconRing: "ring-rose-300/65 dark:ring-rose-600/40",
+  },
+  "mini-tomato": {
+    cardGradient:
+      "bg-gradient-to-br from-rose-100/90 via-red-50 to-orange-50 dark:from-rose-950/45 dark:via-red-950/30 dark:to-orange-950/25",
+    iconRing: "ring-rose-300/65 dark:ring-rose-600/40",
+  },
   "broccoli-sprout": {
     cardGradient:
       "bg-gradient-to-br from-teal-100/88 via-emerald-50 to-green-50 dark:from-teal-950/40 dark:via-emerald-950/30 dark:to-green-950/25",

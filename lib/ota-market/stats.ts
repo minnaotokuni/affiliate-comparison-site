@@ -25,14 +25,25 @@ function formatIsoJst(d: Date): string {
   return jp;
 }
 
-/** 過去データがある代表中値の一覧から、現在値の年間位置（便宜上・保存履歴ベース） */
-export function yearlyBandLabel(current: number | null, historyMids: number[]): string {
-  if (current == null || historyMids.length < 3) return "比較データ不足";
+export type YearlyBandKind = "low" | "mid" | "high" | "unknown";
+
+/** 保存履歴ベースのおおまかな位置（3点未満は unknown） */
+export function yearlyBandKind(current: number | null, historyMids: number[]): YearlyBandKind {
+  if (current == null || historyMids.length < 3) return "unknown";
   const sorted = [...historyMids].sort((a, b) => a - b);
   const below = sorted.filter((x) => x < current).length;
   const p = below / sorted.length;
-  if (p <= 0.25) return "保存履歴の中では安め寄り";
-  if (p >= 0.75) return "保存履歴の中では高め寄り";
+  if (p <= 0.25) return "low";
+  if (p >= 0.75) return "high";
+  return "mid";
+}
+
+/** 過去データがある代表中値の一覧から、現在値の年間位置（便宜上・保存履歴ベース） */
+export function yearlyBandLabel(current: number | null, historyMids: number[]): string {
+  const k = yearlyBandKind(current, historyMids);
+  if (k === "unknown") return "比較データ不足";
+  if (k === "low") return "保存履歴の中では安め寄り";
+  if (k === "high") return "保存履歴の中では高め寄り";
   return "保存履歴の中では中位付近";
 }
 

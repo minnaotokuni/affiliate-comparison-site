@@ -1,0 +1,41 @@
+name: Daily market history snapshot
+
+on:
+  schedule:
+    # JST 正午頃（UTC 03:00）。休場日はスクリプトが exit 1 になりコミットされません。
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm ci
+
+      # 休場・通信エラー時は一方だけ失敗しうるため、個別に実行して変更分だけコミットする
+      - run: npm run ota:snapshot
+        continue-on-error: true
+      - run: npm run shijou:snapshot
+        continue-on-error: true
+
+      - name: Commit history JSON if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/ota-history.json data/shijou-sei-history.json
+          if git diff --staged --quiet; then
+            echo "No history changes."
+          else
+            git commit -m "chore: daily market history snapshot"
+            git push
+          fi

@@ -7,9 +7,11 @@ import {
   pointsInLastCalendarDays,
   pointsInSameCalendarMonth,
   weekRangeLabel,
+  yearlyBandKind,
   yearlyBandLabel,
 } from "./stats";
-import { isoDateInJapan, longDateLabelJa } from "@/lib/jst-date";
+import { isoDateInJapan, longDateLabelJa, subtractCalendarDaysIso } from "@/lib/jst-date";
+import type { YearlyBandKind } from "./stats";
 import type { OtaDailyPoint, OtaItemConfig } from "./types";
 
 export type OtaSparkDay = {
@@ -28,6 +30,11 @@ export type OtaDashboardRow = {
   yearSummary: string;
   spark: OtaSparkDay[];
   status: "ok" | "no_shipment" | "no_rows";
+  /** 先週（直前7暦日）の代表中値の平均。比較用 */
+  prevWeekMidAvg: number | null;
+  /** 当日代表中値 vs prevWeekMidAvg の変化率（%）。比較不能時は null */
+  weekOverWeekPct: number | null;
+  yearlyBand: YearlyBandKind;
 };
 
 export type OtaDashboardPayload = {
@@ -108,6 +115,16 @@ export async function getOtaMarketDashboard(): Promise<OtaDashboardPayload | Ota
       const histMids = series.filter((p) => p.hasShipment && p.midWeighted != null).map((p) => p.midWeighted!);
 
       const currentMid = live?.midWeighted ?? null;
+      const prevWeekEnd = subtractCalendarDaysIso(referenceDateIso, 7);
+      const prevWeekPts = pointsInLastCalendarDays(series, prevWeekEnd, 7);
+      const prevMids = prevWeekPts.map((p) => p.midWeighted).filter((x): x is number => x != null);
+      const prevWeekMidAvg =
+        prevMids.length > 0 ? Math.round(prevMids.reduce((a, b) => a + b, 0) / prevMids.length) : null;
+      let weekOverWeekPct: number | null = null;
+      if (currentMid != null && prevWeekMidAvg != null && prevWeekMidAvg > 0) {
+        weekOverWeekPct = Math.round(((currentMid - prevWeekMidAvg) / prevWeekMidAvg) * 1000) / 10;
+      }
+
       rows.push({
         config: cfg,
         live,
@@ -117,6 +134,9 @@ export async function getOtaMarketDashboard(): Promise<OtaDashboardPayload | Ota
         yearSummary: yearlyBandLabel(currentMid, histMids),
         spark: buildSpark(series, referenceDateIso, 7),
         status,
+        prevWeekMidAvg,
+        weekOverWeekPct,
+        yearlyBand: yearlyBandKind(currentMid, histMids),
       });
     }
 

@@ -5,7 +5,8 @@
 import { aggregateItemDay } from "../lib/ota-market/aggregate";
 import { OTA_API_FRUIT, OTA_API_VEG, OTA_TRACKED_ITEMS } from "../lib/ota-market/config";
 import { fetchOtaCsv, parseOtaCsv } from "../lib/ota-market/csv";
-import { mergeSnapshotIntoHistory } from "../lib/ota-market/history";
+import { mergeOtaSnapshotsBatch } from "../lib/ota-market/history";
+import type { OtaDailyPoint } from "../lib/ota-market/types";
 
 async function main() {
   const [vegText, fruitText] = await Promise.all([
@@ -13,15 +14,13 @@ async function main() {
     fetchOtaCsv(OTA_API_FRUIT, "no-store"),
   ]);
   const rows = [...parseOtaCsv(vegText), ...parseOtaCsv(fruitText)];
-  let n = 0;
+  const batch: { itemCode: string; point: OtaDailyPoint }[] = [];
   for (const cfg of OTA_TRACKED_ITEMS) {
     const pt = aggregateItemDay(rows, cfg.itemCode);
-    if (pt) {
-      mergeSnapshotIntoHistory(cfg.itemCode, pt);
-      n++;
-    }
+    if (pt) batch.push({ itemCode: cfg.itemCode, point: pt });
   }
-  console.log(`ota-snapshot: merged ${n} items`);
+  mergeOtaSnapshotsBatch(batch);
+  console.log(`ota-snapshot: merged ${batch.length} items`);
 }
 
 main().catch((e) => {

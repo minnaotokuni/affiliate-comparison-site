@@ -6,7 +6,7 @@ function trendPillClass(label: string) {
   if (label.includes("高め")) {
     return "bg-rose-100 text-rose-900 ring-rose-200 dark:bg-rose-950/60 dark:text-rose-100 dark:ring-rose-800/50";
   }
-  if (label.includes("安め")) {
+  if (label.includes("安め") || label.includes("おすすめ")) {
     return "bg-lime-100 text-lime-950 ring-lime-200 dark:bg-lime-950/50 dark:text-lime-100 dark:ring-lime-800/40";
   }
   return "bg-amber-100 text-amber-950 ring-amber-200 dark:bg-amber-950/45 dark:text-amber-100 dark:ring-amber-800/40";
@@ -28,7 +28,7 @@ export function HomeMarketCardLink({ label, description }: Props) {
 
       <div className="mt-4 rounded-xl bg-gradient-to-br from-emerald-50/95 via-white to-amber-50/40 p-3 ring-1 ring-emerald-900/10 dark:from-emerald-950/80 dark:via-emerald-950/40 dark:to-orange-950/25 dark:ring-emerald-100/10">
         <p className="text-center text-[10px] font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
-          いま値ごろ感が出やすい野菜（例）
+          相場からのおすすめ（野菜の例）
         </p>
         <div className="mt-3 grid grid-cols-3 gap-2">
           {marketHomePicks.map((pick) => (
@@ -59,8 +59,11 @@ export function HomeMarketCardLink({ label, description }: Props) {
             </div>
           ))}
         </div>
-        <p className="mt-3 text-center text-[8px] leading-relaxed text-emerald-700/70 dark:text-emerald-300/55">
-          金額・動きはすべて参考です。産地・規格・店舗で大きく異なります。食べ方・栄養の詳細は「野菜別ガイド」でどうぞ。
+        <p className="mt-3 text-center text-[9px] leading-relaxed text-emerald-800/80 dark:text-emerald-200/70">
+          果物は記事内で「そのまま食べる」ヒントのみ（キウイ・春柑橘など）。金額は参考です。
+        </p>
+        <p className="mt-2 text-center text-[8px] leading-relaxed text-emerald-700/70 dark:text-emerald-300/55">
+          食べ方・栄養の詳細は「野菜別ガイド」でどうぞ。
         </p>
       </div>
 

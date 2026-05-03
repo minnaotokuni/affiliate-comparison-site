@@ -105,7 +105,7 @@ export function VegetableGuideBody() {
                   <div>
                     <h2 className="text-xl font-semibold text-emerald-950 dark:text-emerald-50">{v.name}</h2>
                     <p className="mt-1 text-[11px] text-emerald-800/85 dark:text-emerald-200/75">
-                      読み方: 栄養（成分と一般的な役わり）→ 旬の組み合わせ → 調理 → 売場 → 糖度（該当品のみ）
+                      読み方: 栄養（成分と一般的な役わり）→ 旬の組み合わせ → 調理 → お店での選び方 → 糖度（該当品のみ）
                     </p>
                   </div>
                   <ul className="flex flex-wrap gap-1.5">
@@ -170,7 +170,7 @@ export function VegetableGuideBody() {
             </div>
 
             <div className="mt-8 rounded-xl border border-emerald-900/10 bg-white/60 p-4 backdrop-blur-sm dark:border-emerald-100/15 dark:bg-emerald-950/50">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">売場チェック・選び方</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">お店でのチェック・選び方</h3>
               <ul className="mt-3 list-inside list-disc space-y-1 text-sm leading-relaxed text-emerald-950/90 dark:text-emerald-50/88">
                 {v.selection.map((line) => (
                   <li key={line}>{line}</li>

@@ -31,11 +31,19 @@ export function loadOtaHistory(): OtaHistoryFile {
   }
 }
 
-/** CLI スナップショット用: 履歴にマージして保存 */
+/** CLI スナップショット用: 履歴にマージして保存（単品・後方互換） */
 export function mergeSnapshotIntoHistory(itemCode: string, point: OtaDailyPoint): void {
+  mergeOtaSnapshotsBatch([{ itemCode, point }]);
+}
+
+/** 複数品目を1回の読み書きでマージ */
+export function mergeOtaSnapshotsBatch(points: { itemCode: string; point: OtaDailyPoint }[]): void {
+  if (points.length === 0) return;
   const hist = loadOtaHistory();
-  if (!hist.byItem[itemCode]) hist.byItem[itemCode] = {};
-  hist.byItem[itemCode][point.date] = point;
+  for (const { itemCode, point } of points) {
+    if (!hist.byItem[itemCode]) hist.byItem[itemCode] = {};
+    hist.byItem[itemCode][point.date] = point;
+  }
   hist.lastSnapshotAt = new Date().toISOString();
   writeFileSync(FILE, JSON.stringify(hist, null, 2), "utf-8");
 }

@@ -166,6 +166,19 @@ export function VeggieIcon({ slug, className = "", size = 56, title }: Props) {
           <path d="M32 14 L28 8 L36 8 Z" fill="#22c55e" />
         </svg>
       );
+    case "nira":
+      return (
+        <svg {...common} viewBox="0 0 64 64" aria-label={title ?? "ニラのイラスト"}>
+          <path d="M32 50 L32 30" stroke="#15803d" strokeWidth="3.5" strokeLinecap="round" />
+          <path
+            d="M32 32 Q24 18 18 12 M32 32 Q40 18 46 12 M32 34 Q20 26 14 18 M32 34 Q44 26 50 18 M30 36 Q22 30 16 22 M34 36 Q42 30 48 22"
+            stroke="#22c55e"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            fill="none"
+          />
+        </svg>
+      );
     case "green-pepper":
       return (
         <svg {...common} viewBox="0 0 64 64" aria-label={title ?? "ピーマンのイラスト"}>

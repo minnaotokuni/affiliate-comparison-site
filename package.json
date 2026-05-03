@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ota:snapshot": "npx tsx scripts/ota-snapshot.ts"
+    "ota:snapshot": "npx tsx scripts/ota-snapshot.ts",
+    "shijou:snapshot": "npx tsx scripts/shijou-snapshot.ts",
+    "snapshot:all": "npm run ota:snapshot && npm run shijou:snapshot"
   },
   "dependencies": {
     "iconv-lite": "^0.7.2",

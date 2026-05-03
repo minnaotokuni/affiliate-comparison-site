@@ -66,6 +66,11 @@ export function OtaMarketDashboard({ data, id }: { data: OtaDashboardPayload; id
           <strong className="font-semibold">スーパーの値段は店・地域・特売で決まり、この表は卸売参考です。</strong>
         </p>
         <p className="mt-2">
+          <strong className="font-semibold">表示は市況APIの取引単位あたりの円</strong>です。品目ごとに単位（量目・等級）が異なるため、
+          「1個・100gパックあたりいくら」まで<strong className="font-semibold">機械的には換算していません</strong>。
+          買い物の単位に近い目安は、同じページの<strong className="font-semibold">東京都デジタル市場日報ブロック</strong>（kg と代表重量からの換算）をあわせて見てください。
+        </p>
+        <p className="mt-2">
           <strong className="font-semibold">週・月・年の比較</strong>はリポジトリ内{" "}
           <code className="rounded bg-white/80 px-1 py-0.5 text-[10px] dark:bg-emerald-950/80">data/ota-history.json</code>{" "}
           に蓄積されたスナップショットを使います。<code className="rounded bg-white/80 px-1 py-0.5 text-[10px] dark:bg-emerald-950/80">npm run ota:snapshot</code>{" "}
@@ -74,7 +79,7 @@ export function OtaMarketDashboard({ data, id }: { data: OtaDashboardPayload; id
       </div>
 
       <div className="mt-5 overflow-x-auto">
-        <table className="min-w-[880px] w-full border-collapse text-left text-xs">
+        <table className="w-full border-collapse text-left text-xs">
           <thead>
             <tr className="border-b border-emerald-900/15 text-[10px] font-semibold uppercase tracking-wide text-emerald-700 dark:border-emerald-100/15 dark:text-emerald-300">
               <th className="py-2 pr-3">品目</th>

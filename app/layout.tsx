@@ -20,16 +20,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "旬と相場のメモ帳 | 野菜・果物の実務ナビ",
-    template: "%s | 旬と相場のメモ帳",
+    default:
+      "野菜・果物の旬と相場メモ | 買い物のヒント — ホームページ初心者です。暖かく見守ってください",
+    template: "%s | 野菜・果物の旬と相場メモ",
   },
   description:
-    "旬・直近の相場・選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
+    "旬・直近の相場からのおすすめ品の感触・お店での選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: siteUrl,
-    siteName: "旬と相場のメモ帳",
+    siteName: "野菜・果物の旬と相場メモ",
   },
 };
 

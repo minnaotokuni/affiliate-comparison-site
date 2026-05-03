@@ -1,5 +1,5 @@
 /**
- * 参照シートを分割したラスタ（`/produce-art/*.webp`）とサイト slug の対応。
+ * 参照シートを分割したラスタ（`/produce-art/*.webp` など）とサイト slug の対応。
  * 無い品目は undefined のまま SVG にフォールバックします。
  */
 
@@ -12,13 +12,18 @@ export const produceRasterBySlug: Partial<Record<string, string>> = {
   eggplant: "ナス.webp",
   carrot: "人参.webp",
   negi: "ねぎ.webp",
+  nira: "ニラ.png",
   hakusai: "白菜.webp",
   potato: "じゃがいも.webp",
   "green-pepper": "ピーマン.webp",
   spinach: "ほうれん草.webp",
   lettuce: "レタス.webp",
   broccoli: "ブロッコリー.webp",
-  "sweet-corn": "とうもろこし.webp",
+  asparagus: "アスパラガス.webp",
+  "fruit-tomato": "トマト.webp",
+  "mini-tomato": "トマト.webp",
+  edamame: "枝豆.png",
+  "sweet-corn": "とうもろこし.png",
   pumpkin: "南瓜.webp",
 
   strawberry: "イチゴ.webp",
