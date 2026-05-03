@@ -27,10 +27,11 @@ jobs:
           HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::error::GitHub にシークレット VERCEL_DEPLOY_HOOK がありません。"
-            echo "Vercel → 対象プロジェクト → Settings → Git → Deploy Hooks で main 用フックを作成し、"
-            echo "https://github.com/takuya-watanabeaaa/affiliate-comparison-site/settings/secrets/actions で登録してください。"
-            exit 1
+            echo "::notice::VERCEL_DEPLOY_HOOK が未設定のためスキップしました（失敗ではありません）。"
+            echo "再デプロイだけ自動化したい場合: Vercel → Deploy Hooks で main 用 URL を発行し、"
+            echo "GitHub → Settings → Secrets and variables → Actions → VERCEL_DEPLOY_HOOK に登録。"
+            echo "通常は Vercel の Git 連携で push 時にビルドされます。CLI なら: npx vercel deploy --prod"
+            exit 0
           fi
           curl -fsS -X POST "$HOOK"
           echo "Deploy hook accepted."
