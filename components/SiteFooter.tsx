@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AffiliateRakutenBanner } from "@/components/AffiliateRakutenBanner";
 import { affiliateDisclaimer } from "@/lib/legal-copy";
 
 const publicSiteOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? "https://affiliate-comparison-site-alpha.vercel.app";
@@ -42,6 +43,7 @@ export function SiteFooter() {
           </p>
         ) : null}
         <p className="text-emerald-100/90">{affiliateDisclaimer}</p>
+        <AffiliateRakutenBanner />
         <p className="text-emerald-200/70">
           掲載内容は個人のメモと公開資料の整理であり、特定の効果・効能や投資判断を保証するものではありません。
         </p>
