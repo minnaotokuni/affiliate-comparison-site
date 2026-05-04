@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ChefBunny } from "@/components/illustrations";
 import { LegalNotice } from "@/components/LegalNotice";
 import { affiliateDisclaimer, marketDataDisclaimer, pharmaRelatedDisclaimer } from "@/lib/legal-copy";
 
@@ -11,7 +12,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <article className="mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-      <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
+      <header className="relative border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
+        <ChefBunny
+          decorative
+          className="pointer-events-none absolute -top-2 right-0 hidden h-auto w-[120px] opacity-95 sm:block sm:w-[140px]"
+        />
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">About</p>
         <h1 className="mt-2 text-3xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">サイトについて</h1>
       </header>

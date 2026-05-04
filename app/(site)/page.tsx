@@ -3,6 +3,12 @@ import { HomeMarketCardLink } from "@/components/HomeMarketCardLink";
 import { HomeProduceIndex } from "@/components/HomeProduceIndex";
 import { HomeSeasonCardLink } from "@/components/HomeSeasonCardLink";
 import { HomeTopLead } from "@/components/HomeTopLead";
+import {
+  BackgroundPattern,
+  CornerLeaves,
+  HeroBasket,
+  SectionDivider,
+} from "@/components/illustrations";
 import { ShijouSeiDashboard, ShijouSeiDashboardError } from "@/components/ShijouSeiDashboard";
 import { OtaMarketDashboard, OtaMarketDashboardError } from "@/components/OtaMarketDashboard";
 import { buildOtaTopVoiceLines } from "@/lib/home/ota-top-voice";
@@ -102,6 +108,16 @@ export default async function HomePage() {
           className="pointer-events-none absolute -right-16 -top-16 size-56 rounded-full bg-emerald-400/15 blur-3xl dark:bg-emerald-500/10"
           aria-hidden
         />
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 text-emerald-700 opacity-[0.07] dark:text-emerald-300 dark:opacity-[0.09]"
+          aria-hidden
+        >
+          <BackgroundPattern variant="leaf" />
+        </div>
+        <HeroBasket
+          decorative
+          className="pointer-events-none absolute -bottom-3 right-3 -z-10 hidden h-auto w-[170px] opacity-95 lg:block lg:right-6 lg:w-[220px]"
+        />
         <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-700 dark:text-emerald-300">
           野菜・果物の旬と相場メモ
         </p>
@@ -150,7 +166,11 @@ export default async function HomePage() {
         </nav>
       </div>
 
-      <section className="mt-10" aria-labelledby="home-theme-heading">
+      <div className="mt-8" aria-hidden>
+        <SectionDivider height={28} className="opacity-80" />
+      </div>
+
+      <section className="mt-6" aria-labelledby="home-theme-heading">
         <div className="flex flex-wrap items-end justify-between gap-2">
           <div>
             <h2
@@ -193,10 +213,16 @@ export default async function HomePage() {
       </section>
 
       <section
-        className="mt-6 rounded-2xl border border-emerald-900/10 bg-emerald-50/50 px-4 py-4 dark:border-emerald-100/10 dark:bg-emerald-900/30"
+        className="relative mt-6 overflow-hidden rounded-2xl border border-emerald-900/10 bg-emerald-50/50 px-4 py-4 dark:border-emerald-100/10 dark:bg-emerald-900/30"
         aria-labelledby="home-popular-heading"
       >
-        <div className="flex flex-wrap items-center gap-2">
+        <CornerLeaves
+          position="tr"
+          decorative
+          className="pointer-events-none absolute -right-2 -top-2 hidden text-emerald-600/55 dark:text-emerald-300/55 sm:block"
+          size={72}
+        />
+        <div className="relative flex flex-wrap items-center gap-2">
           <h2
             id="home-popular-heading"
             className="text-xs font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200"

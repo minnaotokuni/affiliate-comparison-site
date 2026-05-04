@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnchorSection } from "@/components/AnchorSection";
+import { SeasonRibbon, type Season } from "@/components/illustrations";
 import { InPageJumpButtons } from "@/components/InPageJumpButtons";
 import { LegalNotice } from "@/components/LegalNotice";
+import { PageHero } from "@/components/PageHero";
 import {
   YEARLY_CALENDAR,
   monthLabel,
@@ -11,6 +13,14 @@ import {
   type YearlyCalendarMonth,
 } from "@/lib/columns/yearly-calendar";
 import { isoDateInJapan } from "@/lib/jst-date";
+
+/** 月（1-12）から表示用の季節を返す（1-2月→winter, 3-5月→spring, 6-8月→summer, 9-11月→autumn, 12月→winter）。 */
+function seasonForMonth(month: number): Season {
+  if (month >= 3 && month <= 5) return "spring";
+  if (month >= 6 && month <= 8) return "summer";
+  if (month >= 9 && month <= 11) return "autumn";
+  return "winter";
+}
 
 /** 「いまの月」を JST で計算するため、ビルド時に固定しない */
 export const dynamic = "force-dynamic";
@@ -98,30 +108,39 @@ function MonthCard({ data, isCurrent }: { data: YearlyCalendarMonth; isCurrent: 
 export default function CalendarColumnPage() {
   const refIso = isoDateInJapan();
   const currentMonth = Number(refIso.slice(5, 7)) || 1;
+  const currentSeason = seasonForMonth(currentMonth);
 
   return (
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <InPageJumpButtons tocAnchorId="calendar-toc" />
 
-      <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
-        <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
-          Yearly calendar
-        </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">
-          年間 旬カレンダー（家庭向け目安）
-        </h1>
-        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
-          野菜・果物の旬を1月〜12月で一覧にしました。流通量・店頭での並びやすさを基準にした「家庭で使いやすい目安」です。
-          産地・品種・特売・天候で前後するので、最終的には店頭の並び・値札もあわせて目安にしてください（日本時間の暦・
-          <time dateTime={refIso} className="tabular-nums">
-            {refIso}
-          </time>
-          基準）。
-        </p>
-        <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
-          いまの月（<strong className="font-semibold">{monthLabel(currentMonth)}</strong>）は強調して表示しています。下の「ジャンプ」から各月へ移動できます。
-        </p>
-      </header>
+      <PageHero
+        eyebrow="Yearly calendar"
+        title="年間 旬カレンダー（家庭向け目安）"
+        description={
+          <>
+            <p>
+              野菜・果物の旬を1月〜12月で一覧にしました。流通量・店頭での並びやすさを基準にした「家庭で使いやすい目安」です。
+              産地・品種・特売・天候で前後するので、最終的には店頭の並び・値札もあわせて目安にしてください（日本時間の暦・
+              <time dateTime={refIso} className="tabular-nums">
+                {refIso}
+              </time>
+              基準）。
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
+              いまの月（<strong className="font-semibold">{monthLabel(currentMonth)}</strong>）は強調して表示しています。下の「ジャンプ」から各月へ移動できます。
+            </p>
+          </>
+        }
+        illustration={
+          <SeasonRibbon
+            season={currentSeason}
+            ariaLabel={`いまの季節（${monthLabel(currentMonth)}）のリボン`}
+            className="h-auto w-[170px] sm:w-[190px]"
+          />
+        }
+        tone="rose"
+      />
 
       <details
         open

@@ -8,8 +8,15 @@ import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProd
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
 import { RelatedColumnLinks } from "@/components/RelatedColumnLinks";
 import { SectionTitle } from "@/components/SectionTitle";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { latestMarket, type SeasonalFruitEat, type ValueVegetableEat } from "@/lib/columns/market-weekly";
 import { marketDataDisclaimer } from "@/lib/legal-copy";
+import {
+  buildArticleLd,
+  buildBreadcrumbList,
+  buildRecipeLd,
+  parseTimeNote,
+} from "@/lib/seo/structured-data";
 
 const PAGE_PATH = "/column/market";
 const PAGE_TITLE = "直近の相場からのおすすめ品";
@@ -99,8 +106,40 @@ function SeasonalFruitBlock({ item }: { item: SeasonalFruitEat }) {
 }
 
 export default function MarketColumnPage() {
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "ホーム", url: "/" },
+    { name: PAGE_TITLE, url: PAGE_PATH },
+  ]);
+  const articleLd = buildArticleLd({
+    url: PAGE_PATH,
+    headline: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    datePublished: latestMarket.publishedOn,
+    dateModified: latestMarket.publishedOn,
+  });
+  const recipeLds = latestMarket.valueVegetables.flatMap((veg) =>
+    veg.recipes.map((recipe) => {
+      const parsed = parseTimeNote(recipe.timeNote);
+      return buildRecipeLd({
+        url: PAGE_PATH,
+        name: `${veg.name}: ${recipe.title}`,
+        description: `${veg.name}を使う家庭向けレシピ（${recipe.timeNote}）。`,
+        ingredients: recipe.ingredients,
+        steps: recipe.steps,
+        totalTime: parsed.totalTime,
+        recipeYield: parsed.recipeYield,
+        keywords: [veg.name, "野菜", "家庭料理"],
+      });
+    }),
+  );
+
   return (
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={articleLd} />
+      {recipeLds.map((data, index) => (
+        <JsonLd key={`market-recipe-ld-${index}`} data={data} />
+      ))}
       <InPageJumpButtons tocAnchorId="market-toc" />
 
       <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">

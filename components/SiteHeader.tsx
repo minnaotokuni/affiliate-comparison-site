@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MobileNavToggle } from "@/components/MobileNavToggle";
 import { SearchPalette } from "@/components/SearchPalette";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { primaryNav } from "@/lib/site-nav";
 
 export function SiteHeader() {
@@ -18,6 +19,7 @@ export function SiteHeader() {
 
         <div className="flex shrink-0 items-center gap-2">
           <SearchPalette />
+          <ThemeToggle />
           <MobileNavToggle className="md:hidden" />
         </div>
       </div>

@@ -3,7 +3,14 @@ import { LegalNotice } from "@/components/LegalNotice";
 import { RelatedColumnLinks } from "@/components/RelatedColumnLinks";
 import { VegetableGuideBody } from "@/components/VegetableGuideBody";
 import { VegetableGuideHero } from "@/components/VegetableGuideHero";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { vegetableProfiles } from "@/lib/columns/vegetable-profiles";
 import { pharmaRelatedDisclaimer } from "@/lib/legal-copy";
+import {
+  buildArticleLd,
+  buildBreadcrumbList,
+  buildItemListLd,
+} from "@/lib/seo/structured-data";
 
 const PAGE_PATH = "/column/vegetables";
 const PAGE_TITLE = "野菜別ガイド（指定野菜・定番品目）";
@@ -43,8 +50,29 @@ const PAGE_OUTLINE: ReadonlyArray<{ href: string; label: string; description: st
 ];
 
 export default function VegetablesGuidePage() {
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "ホーム", url: "/" },
+    { name: "野菜別ガイド", url: PAGE_PATH },
+  ]);
+  const articleLd = buildArticleLd({
+    url: PAGE_PATH,
+    headline: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  });
+  const itemListLd = buildItemListLd({
+    url: PAGE_PATH,
+    name: "野菜別ガイド",
+    items: vegetableProfiles.map((profile) => ({
+      name: profile.name,
+      url: `${PAGE_PATH}#${profile.slug}`,
+    })),
+  });
+
   return (
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={articleLd} />
+      <JsonLd data={itemListLd} />
       <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
           Vegetable profiles

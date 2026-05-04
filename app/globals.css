@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/**
+ * Tailwind v4 のクラスベース dark mode。
+ * ルート（または祖先）に `.dark` が付いていれば `dark:` ユーティリティが当たる。
+ * ThemeScript (/components/ThemeScript.tsx) が <html> の class を初期化する。
+ */
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -27,11 +34,15 @@ html {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/**
+ * クラスベースでのダーク変数。ThemeScript が <html>.dark を付けたときに反映される。
+ * 以前の @media (prefers-color-scheme: dark) 版は、ユーザーがテーマを明示的に
+ * "light" に切り替えても OS 設定に引きずられてしまうためクラスベースに置き換えた。
+ * "system" 選択時は ThemeScript 側で OS の prefers-color-scheme を読み取って .dark を付ける。
+ */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {

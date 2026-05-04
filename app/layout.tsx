@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Noto_Sans_JP } from "next/font/google";
+import { ThemeScript } from "@/components/ThemeScript";
 import "./globals.css";
 
 /** 共有・OG用の本番オリジン（デプロイごとの *.duckgain17-*.vercel.app は認証で開けないことがあります） */
@@ -87,8 +88,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJp.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+    <html
+      lang="ja"
+      className={`${notoSansJp.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-full flex-col font-sans">
+        <ThemeScript />
+        {children}
+      </body>
     </html>
   );
 }

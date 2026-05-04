@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { AnchorSection } from "@/components/AnchorSection";
+import { MarketStall, SectionDivider } from "@/components/illustrations";
 import { InPageJumpButtons } from "@/components/InPageJumpButtons";
 import { LegalNotice } from "@/components/LegalNotice";
+import { PageHero } from "@/components/PageHero";
 import {
   SELECT_KIND_DESCRIPTION,
   SELECT_KIND_LABEL,
@@ -73,20 +75,27 @@ export default function SelectColumnPage() {
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <InPageJumpButtons tocAnchorId="select-toc" />
 
-      <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
-        <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
-          Select guide
-        </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">
-          お店での野菜・果物の選び方ガイド
-        </h1>
-        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
-          売場で迷ったときの実用チェックポイントを、品目別に「見た目」「手触り・重さ」「避けたいサイン」の3つに整理しました。スーパー・八百屋・直売所など、買い物のスタイルに合わせて使えます。
-        </p>
-        <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
-          掲載品目：{selectItems.length}品。野菜と果物に分けて並べています。
-        </p>
-      </header>
+      <PageHero
+        eyebrow="Select guide"
+        title="お店での野菜・果物の選び方ガイド"
+        description={
+          <>
+            <p>
+              売場で迷ったときの実用チェックポイントを、品目別に「見た目」「手触り・重さ」「避けたいサイン」の3つに整理しました。スーパー・八百屋・直売所など、買い物のスタイルに合わせて使えます。
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
+              掲載品目：{selectItems.length}品。野菜と果物に分けて並べています。
+            </p>
+          </>
+        }
+        illustration={
+          <MarketStall
+            decorative
+            className="hidden h-auto w-[200px] sm:block lg:w-[260px]"
+          />
+        }
+        tone="emerald"
+      />
 
       <details
         open
@@ -132,24 +141,31 @@ export default function SelectColumnPage() {
           </ul>
         </AnchorSection>
 
-        {grouped.map(({ kind, items }) => (
-          <AnchorSection key={kind} id={KIND_ANCHOR[kind]} className="space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-              <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">
-                {SELECT_KIND_LABEL[kind]}（{items.length}品）
-              </h2>
-              <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-            </div>
-            <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
-              {SELECT_KIND_DESCRIPTION[kind]}
-            </p>
-            <div className="space-y-6">
-              {items.map((item) => (
-                <SelectItemCard key={item.name} item={item} />
-              ))}
-            </div>
-          </AnchorSection>
+        {grouped.map(({ kind, items }, idx) => (
+          <div key={kind} className="space-y-6">
+            {idx > 0 ? (
+              <div aria-hidden className="px-2">
+                <SectionDivider height={28} />
+              </div>
+            ) : null}
+            <AnchorSection id={KIND_ANCHOR[kind]} className="space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
+                <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">
+                  {SELECT_KIND_LABEL[kind]}（{items.length}品）
+                </h2>
+                <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
+              </div>
+              <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
+                {SELECT_KIND_DESCRIPTION[kind]}
+              </p>
+              <div className="space-y-6">
+                {items.map((item) => (
+                  <SelectItemCard key={item.name} item={item} />
+                ))}
+              </div>
+            </AnchorSection>
+          </div>
         ))}
       </div>
     </article>

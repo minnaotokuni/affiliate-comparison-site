@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { AnchorSection } from "@/components/AnchorSection";
+import { FruitBowl, SectionDivider } from "@/components/illustrations";
 import { InPageJumpButtons } from "@/components/InPageJumpButtons";
 import { LegalNotice } from "@/components/LegalNotice";
+import { PageHero } from "@/components/PageHero";
 import {
   NUTRITION_TAG_BADGE,
   nutritionEntries,
@@ -60,20 +62,27 @@ export default function NutritionColumnPage() {
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <InPageJumpButtons tocAnchorId="nutrition-toc" />
 
-      <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
-        <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
-          Nutrition basics
-        </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">
-          野菜・果物の栄養素の基礎（家庭目安）
-        </h1>
-        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
-          食物繊維・ビタミン・ミネラル・カロテノイド・ポリフェノールなど、野菜と果物に多い代表的な栄養素を{nutritionEntries.length}項目に整理しました。家庭での「だいたいこんな成分」「こう語られることが多い」というイメージをつかむのが目的です。
-        </p>
-        <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
-          疾病の予防・治療や、特定の効能を保証するものではありません。持病・服薬中・妊娠中・小児・高齢の方は、医師・薬剤師・管理栄養士へご相談ください。
-        </p>
-      </header>
+      <PageHero
+        eyebrow="Nutrition basics"
+        title="野菜・果物の栄養素の基礎（家庭目安）"
+        description={
+          <>
+            <p>
+              食物繊維・ビタミン・ミネラル・カロテノイド・ポリフェノールなど、野菜と果物に多い代表的な栄養素を{nutritionEntries.length}項目に整理しました。家庭での「だいたいこんな成分」「こう語られることが多い」というイメージをつかむのが目的です。
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
+              疾病の予防・治療や、特定の効能を保証するものではありません。持病・服薬中・妊娠中・小児・高齢の方は、医師・薬剤師・管理栄養士へご相談ください。
+            </p>
+          </>
+        }
+        illustration={
+          <FruitBowl
+            decorative
+            className="hidden h-auto w-[170px] sm:block lg:w-[220px]"
+          />
+        }
+        tone="sky"
+      />
 
       <details
         open
@@ -120,6 +129,10 @@ export default function NutritionColumnPage() {
           {nutritionEntries.map((entry) => (
             <NutritionCard key={entry.tag} entry={entry} />
           ))}
+        </div>
+
+        <div aria-hidden className="px-2">
+          <SectionDivider height={28} />
         </div>
 
         <LegalNotice title="重要：効能を保証するものではありません" variant="warn">

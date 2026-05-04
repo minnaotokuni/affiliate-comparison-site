@@ -36,4 +36,19 @@ export const primaryNav = [
     label: "栄養素のキホン",
     description: "ビタミン・ミネラルなどの一般的な役わりを家庭目線で",
   },
+  {
+    href: "/columns",
+    label: "コラム一覧",
+    description: "サイトのコラムを俯瞰する入り口",
+  },
+  {
+    href: "/glossary",
+    label: "語句集",
+    description: "追熟・糖度・リコピン などの言葉のかんたん解説",
+  },
+  {
+    href: "/column/cooking-tips",
+    label: "調理のヒント",
+    description: "家庭料理の小さなコツを集めたメモ",
+  },
 ] as const;

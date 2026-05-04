@@ -25,6 +25,13 @@ const columnSlugs: readonly ColumnSlug[] = [
   "nutrition",
 ];
 
+/** 「ハブ・補助系」の比較的更新頻度が低いページ。`changeFrequency: "monthly"`, `priority: 0.7`。 */
+const monthlyHubPaths: readonly string[] = [
+  "/columns",
+  "/glossary",
+  "/column/cooking-tips",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
@@ -42,6 +49,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const monthlyHubs: MetadataRoute.Sitemap = monthlyHubPaths.map((path) => ({
+    url: `${siteUrl}${path}`,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
   const about: MetadataRoute.Sitemap[number] = {
     url: `${siteUrl}/about`,
     lastModified,
@@ -49,5 +63,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   };
 
-  return [home, ...columns, about];
+  return [home, ...columns, ...monthlyHubs, about];
 }

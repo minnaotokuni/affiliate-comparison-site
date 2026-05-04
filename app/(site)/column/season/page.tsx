@@ -11,6 +11,7 @@ import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProd
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
 import { RelatedColumnLinks } from "@/components/RelatedColumnLinks";
 import { VeggieIcon } from "@/components/VeggieIcon";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { fruitSpotlights } from "@/lib/columns/fruit-spotlights";
 import {
   seasonDeepPicksForMonth,
@@ -18,6 +19,12 @@ import {
   vegetablesGuideAnchorSlug,
 } from "@/lib/columns/season-deep-picks";
 import { isoDateInJapan } from "@/lib/jst-date";
+import {
+  buildArticleLd,
+  buildBreadcrumbList,
+  buildRecipeLd,
+  parseTimeNote,
+} from "@/lib/seo/structured-data";
 
 const PAGE_PATH = "/column/season";
 const PAGE_TITLE = "旬ナビ";
@@ -50,11 +57,44 @@ export default function SeasonColumnPage() {
   const featuredFruitSlugs = new Set(deepPicks.filter((p) => p.kind === "fruit").map((p) => p.slug));
   const appendixFruits = fruitSpotlights.filter((f) => !featuredFruitSlugs.has(f.slug));
 
+  const breadcrumbLd = buildBreadcrumbList([
+    { name: "ホーム", url: "/" },
+    { name: PAGE_TITLE, url: PAGE_PATH },
+  ]);
+  const articleLd = buildArticleLd({
+    url: PAGE_PATH,
+    headline: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    datePublished: refIso,
+    dateModified: refIso,
+  });
+  const recipeLds = deepPicks.flatMap((pick) =>
+    (pick.recipes ?? []).map((recipe) => {
+      const parsed = parseTimeNote(recipe.timeNote);
+      const kindLabel = pick.kind === "fruit" ? "果物" : "野菜";
+      return buildRecipeLd({
+        url: `${PAGE_PATH}#${seasonPickAnchorId(pick)}`,
+        name: `${pick.name}: ${recipe.title}`,
+        description: `${pick.name}を使った家庭向けレシピ（${recipe.timeNote}）。`,
+        ingredients: recipe.ingredients,
+        steps: recipe.steps,
+        totalTime: parsed.totalTime,
+        recipeYield: parsed.recipeYield,
+        keywords: [pick.name, kindLabel, "家庭料理"],
+      });
+    }),
+  );
+
   return (
     <article
       id="page-top"
       className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14"
     >
+      <JsonLd data={breadcrumbLd} />
+      <JsonLd data={articleLd} />
+      {recipeLds.map((data, index) => (
+        <JsonLd key={`season-recipe-ld-${index}`} data={data} />
+      ))}
       <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
         <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">Season guide</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { AnchorSection } from "@/components/AnchorSection";
+import { ShoppingBag, SectionDivider } from "@/components/illustrations";
 import { InPageJumpButtons } from "@/components/InPageJumpButtons";
 import { LegalNotice } from "@/components/LegalNotice";
+import { PageHero } from "@/components/PageHero";
 import {
   STORAGE_CATEGORY_DESCRIPTION,
   STORAGE_CATEGORY_LABEL,
@@ -70,20 +72,27 @@ export default function StorageColumnPage() {
     <article id="page-top" className="relative mx-auto w-full max-w-[40rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <InPageJumpButtons tocAnchorId="storage-toc" />
 
-      <header className="border-b border-emerald-900/10 pb-8 dark:border-emerald-100/10">
-        <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700 dark:text-emerald-300">
-          Storage guide
-        </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-emerald-950 dark:text-emerald-50 sm:text-3xl">
-          野菜・果物の保存方法ガイド
-        </h1>
-        <p className="mt-3 text-sm leading-relaxed text-emerald-800/88 dark:text-emerald-200/78">
-          常温・冷蔵・冷凍のどれが向きやすいか、家庭での目安を品目別にまとめました。冷蔵庫の温度・湿度や、買ったときの状態でも実際の持ちは変わります。色・におい・手触りでの最終判断もあわせてどうぞ。
-        </p>
-        <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
-          掲載品目：{storageItems.length}品。葉物・根菜・果菜・果物のカテゴリ別に並べています。
-        </p>
-      </header>
+      <PageHero
+        eyebrow="Storage guide"
+        title="野菜・果物の保存方法ガイド"
+        description={
+          <>
+            <p>
+              常温・冷蔵・冷凍のどれが向きやすいか、家庭での目安を品目別にまとめました。冷蔵庫の温度・湿度や、買ったときの状態でも実際の持ちは変わります。色・におい・手触りでの最終判断もあわせてどうぞ。
+            </p>
+            <p className="mt-3 text-xs leading-relaxed text-emerald-800/78 dark:text-emerald-200/68">
+              掲載品目：{storageItems.length}品。葉物・根菜・果菜・果物のカテゴリ別に並べています。
+            </p>
+          </>
+        }
+        illustration={
+          <ShoppingBag
+            decorative
+            className="hidden h-auto w-[150px] sm:block lg:w-[200px]"
+          />
+        }
+        tone="amber"
+      />
 
       <details
         open
@@ -111,24 +120,31 @@ export default function StorageColumnPage() {
           {`掲載している日数や手順は、家庭で参考にしやすい一般的な目安です。冷蔵庫の温度設定、購入時の鮮度、季節の気温で持ちは変わります。色・におい・ぬめり・酸味のあるニオイなど、いつもと違うサインがあれば日数に関わらず使用を中止してください。\n冷凍した食材を解凍した場合は、再冷凍は避けて早めに使い切るのがおすすめです。`}
         </LegalNotice>
 
-        {grouped.map(({ category, items }) => (
-          <AnchorSection key={category} id={CATEGORY_ANCHOR[category]} className="space-y-6">
-            <div className="flex items-center gap-2">
-              <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-              <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">
-                {STORAGE_CATEGORY_LABEL[category]}（{items.length}品）
-              </h2>
-              <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
-            </div>
-            <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
-              {STORAGE_CATEGORY_DESCRIPTION[category]}
-            </p>
-            <div className="space-y-6">
-              {items.map((item) => (
-                <StorageItemCard key={item.name} item={item} />
-              ))}
-            </div>
-          </AnchorSection>
+        {grouped.map(({ category, items }, idx) => (
+          <div key={category} className="space-y-6">
+            {idx > 0 ? (
+              <div aria-hidden className="px-2">
+                <SectionDivider height={28} />
+              </div>
+            ) : null}
+            <AnchorSection id={CATEGORY_ANCHOR[category]} className="space-y-6">
+              <div className="flex items-center gap-2">
+                <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
+                <h2 className="text-center text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">
+                  {STORAGE_CATEGORY_LABEL[category]}（{items.length}品）
+                </h2>
+                <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
+              </div>
+              <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
+                {STORAGE_CATEGORY_DESCRIPTION[category]}
+              </p>
+              <div className="space-y-6">
+                {items.map((item) => (
+                  <StorageItemCard key={item.name} item={item} />
+                ))}
+              </div>
+            </AnchorSection>
+          </div>
         ))}
 
         <section className="rounded-2xl border border-emerald-900/10 bg-emerald-50/40 p-5 text-sm leading-relaxed text-emerald-900/85 dark:border-emerald-100/10 dark:bg-emerald-950/40 dark:text-emerald-100/80 sm:p-6">
