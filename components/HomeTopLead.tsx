@@ -62,17 +62,17 @@ export function HomeTopLead({ referenceIso, referenceLabel, curated, seasonal, o
       className="mt-10 scroll-mt-[var(--site-scroll-padding)] rounded-2xl border border-emerald-900/12 bg-white p-5 shadow-sm dark:border-emerald-100/12 dark:bg-emerald-950 sm:p-6"
       aria-labelledby="top-lead-heading"
     >
-      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-emerald-900/10 pb-4 dark:border-emerald-100/10">
-        <div>
-          <h2 id="top-lead-heading" className="text-base font-semibold text-emerald-950 dark:text-emerald-50">
+      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-emerald-900/10 pb-5 dark:border-emerald-100/10">
+        <div className="space-y-1.5">
+          <h2 id="top-lead-heading" className="text-base font-semibold tracking-tight text-emerald-950 dark:text-emerald-50">
             直近の相場からのおすすめ品 → 旬ナビ → 市況
           </h2>
-          <p className="mt-1 text-xs text-emerald-800/85 dark:text-emerald-200/75">
+          <p className="text-xs leading-relaxed text-emerald-800/85 dark:text-emerald-200/75">
             基準日（日本時間）{" "}
             <time dateTime={referenceIso} className="font-semibold tabular-nums">
               {referenceLabel}
             </time>
-            。上からメインの相場コラム、旬、市況のひとことの順です。下の表は自動更新です。
+            。上から、メインの相場コラム → 旬 → 市況のひとこと、の順です。下の表は自動更新です。
           </p>
         </div>
       </div>

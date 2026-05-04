@@ -9,6 +9,7 @@ import { AffiliateRakutenProductFruitTomato } from "@/components/AffiliateRakute
 import { AffiliateRakutenProductTomatoIchioshi } from "@/components/AffiliateRakutenProductTomatoIchioshi";
 import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProductCookDo";
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
+import { RelatedColumnLinks } from "@/components/RelatedColumnLinks";
 import { VeggieIcon } from "@/components/VeggieIcon";
 import { fruitSpotlights } from "@/lib/columns/fruit-spotlights";
 import {
@@ -18,10 +19,28 @@ import {
 } from "@/lib/columns/season-deep-picks";
 import { isoDateInJapan } from "@/lib/jst-date";
 
+const PAGE_PATH = "/column/season";
+const PAGE_TITLE = "旬ナビ";
+const PAGE_DESCRIPTION =
+  "いまの旬の野菜・果物から3品だけを深く掘り下げる、月替わりの旬ナビ。選び方・調理のヒントに加え、品目ごとに家庭向けレシピを3つずつ掲載。年間カレンダーや市況メモと組み合わせて、献立と買い物の判断材料に活用できます。";
+
 export const metadata: Metadata = {
-  title: "旬ナビ",
-  description:
-    "いまおすすめの野菜・果物を3品だけ深く。選び方・調理のヒントに加え、品目ごとにレシピを3つずつ掲載しています。",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: PAGE_PATH,
+  },
+  openGraph: {
+    type: "article",
+    url: PAGE_PATH,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 export default function SeasonColumnPage() {
@@ -89,7 +108,7 @@ export default function SeasonColumnPage() {
           <section
             key={pick.slug}
             id={seasonPickAnchorId(pick)}
-            className="scroll-mt-[var(--site-scroll-padding)] rounded-2xl border border-emerald-900/10 bg-white p-5 shadow-sm dark:border-emerald-100/10 dark:bg-emerald-950 sm:p-6"
+            className="scroll-mt-[var(--site-scroll-padding)] rounded-2xl border border-emerald-900/12 bg-white p-5 shadow-sm transition hover:border-emerald-700/25 dark:border-emerald-100/12 dark:bg-emerald-950 dark:hover:border-emerald-300/25 sm:p-6"
           >
             <div className="flex flex-wrap items-start gap-3 border-b border-emerald-900/8 pb-4 dark:border-emerald-100/10">
               <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 dark:bg-emerald-900/40">
@@ -193,6 +212,28 @@ export default function SeasonColumnPage() {
           ))}
         </ul>
       </section>
+
+      <RelatedColumnLinks
+        heading="関連コラム"
+        hint="旬ナビと組み合わせて見たい、相場感・年間カレンダー・品目別ガイドへ。"
+        items={[
+          {
+            href: "/column/market",
+            label: "直近の相場からのおすすめ品",
+            description: "今週の相場感をふまえた、買いやすい野菜のレシピと果物の食べ方ヒント。",
+          },
+          {
+            href: "/column/calendar",
+            label: "年間 旬カレンダー",
+            description: "月別の旬野菜・果物の目安。今月どれが旬かを早見できます。",
+          },
+          {
+            href: "/column/vegetables",
+            label: "野菜別ガイド",
+            description: "品目別の栄養素・選び方・調理・糖度の目安を家庭目線でまとめています。",
+          },
+        ]}
+      />
     </article>
   );
 }

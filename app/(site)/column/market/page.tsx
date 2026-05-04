@@ -6,13 +6,33 @@ import { AffiliateRakutenProductOnionIfMatch } from "@/components/AffiliateRakut
 import { AffiliateRakutenProduceStrip } from "@/components/AffiliateRakutenProduceStrip";
 import { AffiliateRakutenProductCookDo } from "@/components/AffiliateRakutenProductCookDo";
 import { MarketRecipeCard } from "@/components/MarketRecipeCard";
+import { RelatedColumnLinks } from "@/components/RelatedColumnLinks";
+import { SectionTitle } from "@/components/SectionTitle";
 import { latestMarket, type SeasonalFruitEat, type ValueVegetableEat } from "@/lib/columns/market-weekly";
 import { marketDataDisclaimer } from "@/lib/legal-copy";
 
+const PAGE_PATH = "/column/market";
+const PAGE_TITLE = "直近の相場からのおすすめ品";
+const PAGE_DESCRIPTION =
+  "野菜・果物の直近の相場をふまえた、いま買いたい旬のおすすめ品メモ。価格がおさえめになりやすい野菜は家庭向けレシピを品目ごとに複数、果物はそのまま食べる楽しみ方のヒントを掲載。週次で更新する参考情報であり、店頭の売値や効能を保証するものではありません。";
+
 export const metadata: Metadata = {
-  title: "直近の相場からのおすすめ品",
-  description:
-    "相場がおさえめになりやすい野菜のレシピ複数と、旬の果物はそのまま食べるヒント。参考情報であり店の売値や効能を保証するものではありません。",
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: {
+    canonical: PAGE_PATH,
+  },
+  openGraph: {
+    type: "article",
+    url: PAGE_PATH,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
 };
 
 function formatDate(iso: string) {
@@ -131,10 +151,17 @@ export default function MarketColumnPage() {
             </h2>
             <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
           </div>
-          <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
-            品目ごとにレシピを複数載せています。季節・トレンド・入荷でターゲット野菜は差し替えてください（データは{" "}
-            <code className="rounded bg-emerald-100/80 px-1 py-0.5 text-[11px] dark:bg-emerald-900/80">market-weekly.ts</code>）。
-          </p>
+          <SectionTitle
+            eyebrow="Value vegetables"
+            as="h3"
+            title="今週とくに使い回しやすい野菜"
+            hint={
+              <>
+                品目ごとにレシピを複数載せています。季節・トレンド・入荷でターゲット野菜は差し替えてください（データは{" "}
+                <code className="rounded bg-emerald-100/80 px-1 py-0.5 text-[11px] dark:bg-emerald-900/80">market-weekly.ts</code>）。
+              </>
+            }
+          />
           <div className="space-y-10">
             {latestMarket.valueVegetables.map((item) => (
               <ValueVegetableBlock key={item.name} item={item} />
@@ -151,15 +178,45 @@ export default function MarketColumnPage() {
             </h2>
             <span className="h-px flex-1 bg-emerald-900/15 dark:bg-emerald-100/15" aria-hidden />
           </div>
-          <p className="text-sm leading-relaxed text-emerald-900/85 dark:text-emerald-100/78">
-            レシピは載せず、香り・酸味・食べ頃の見極めなど「そのまま楽しむ」ためのメモです。品目は季節で入れ替えてください。
-          </p>
+          <SectionTitle
+            eyebrow="Seasonal fruits"
+            as="h3"
+            title="果物はそのまま味わう"
+            hint="レシピは載せず、香り・酸味・食べ頃の見極めなど「そのまま楽しむ」ためのメモです。品目は季節で入れ替えてください。"
+          />
           <div className="space-y-10">
             {latestMarket.seasonalFruits.map((item) => (
               <SeasonalFruitBlock key={item.name} item={item} />
             ))}
           </div>
         </AnchorSection>
+
+        <RelatedColumnLinks
+          heading="関連コラム"
+          hint="相場メモと一緒に見ると、買い物の判断材料が増えます。"
+          items={[
+            {
+              href: "/column/season",
+              label: "旬ナビ：いまおすすめ3品を深く",
+              description: "暦ベースで月替わりの3品を深掘り。レシピも品目ごとに3つ。",
+            },
+            {
+              href: "/column/vegetables",
+              label: "野菜別ガイド",
+              description: "品目別の栄養素・選び方・調理・糖度の目安を家庭目線でまとめています。",
+            },
+            {
+              href: "/column/select",
+              label: "選び方ガイド",
+              description: "お店での見分け方（見た目・手触り・避けたいサイン）。",
+            },
+            {
+              href: "/column/storage",
+              label: "保存方法ガイド",
+              description: "常温・冷蔵・冷凍の家庭での目安をまとめています。",
+            },
+          ]}
+        />
       </div>
     </article>
   );

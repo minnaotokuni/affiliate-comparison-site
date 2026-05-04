@@ -16,4 +16,24 @@ export const primaryNav = [
       "イラスト付きで品目別チェック。栄養素と一般的な役わり・旬の組み合わせ・調理・選び方・糖度はページ内で詳しく",
   },
   { href: "/about", label: "サイトについて", description: "運営方針・アフィリエイトについて" },
+  {
+    href: "/column/calendar",
+    label: "年間 旬カレンダー",
+    description: "月別の旬野菜・果物の目安。今月どれが旬かを早見",
+  },
+  {
+    href: "/column/select",
+    label: "選び方ガイド",
+    description: "お店での見分け方（見た目・手触り・避けたいサイン）",
+  },
+  {
+    href: "/column/storage",
+    label: "保存方法ガイド",
+    description: "常温・冷蔵・冷凍の家庭での目安",
+  },
+  {
+    href: "/column/nutrition",
+    label: "栄養素のキホン",
+    description: "ビタミン・ミネラルなどの一般的な役わりを家庭目線で",
+  },
 ] as const;

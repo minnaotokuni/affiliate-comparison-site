@@ -11,11 +11,14 @@ export function HomeProduceIndex() {
 
   return (
     <section className="mt-14" aria-labelledby="produce-index-heading">
-      <h2 id="produce-index-heading" className="text-sm font-semibold text-emerald-900 dark:text-emerald-100">
-        主要な野菜・果物から見る
+      <h2 id="produce-index-heading" className="text-sm font-semibold tracking-tight text-emerald-900 dark:text-emerald-100">
+        主要な野菜・果物から探す
       </h2>
       <p className="mt-2 max-w-2xl text-xs leading-relaxed text-emerald-800/80 dark:text-emerald-200/70">
         野菜は各品のガイドへ、果物は旬ナビの「主要果物の見どころ」へジャンプします。掲載品目は公的な作況や流通でよく取り上げられる代表例を中心にしています（産地・品種・年で変わります）。品種の細かい話は、野菜は各ガイド・果物は旬ナビで補足しています。
+      </p>
+      <p className="mt-1 text-[11px] leading-relaxed text-emerald-700/70 dark:text-emerald-300/60">
+        ※ 名前を覚えていない・テーマで探したいときは、上の「探したいテーマで選ぶ」やヘッダーの検索もどうぞ。
       </p>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">

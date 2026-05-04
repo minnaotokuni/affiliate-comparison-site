@@ -25,13 +25,60 @@ export const metadata: Metadata = {
     template: "%s | 野菜・果物の旬と相場メモ",
   },
   description:
-    "旬・直近の相場からのおすすめ品の感触・お店での選び方を週次で整理。食品の健康効果を約束する表現は行いません。将来 A8 などのアフィリエイトを掲載予定です。",
+    "野菜・果物の旬と直近の相場メモを週次で整理。市況の感触・お店での選び方・保存のコツをまとめ、買い物の判断材料にしてもらうサイトです。",
+  keywords: [
+    "野菜",
+    "果物",
+    "旬",
+    "相場",
+    "市況",
+    "選び方",
+    "保存方法",
+    "買い物",
+    "大田市場",
+    "東京都中央卸売市場",
+  ],
+  applicationName: "野菜・果物の旬と相場メモ",
+  authors: [{ name: "野菜・果物の旬と相場メモ" }],
+  creator: "野菜・果物の旬と相場メモ",
+  publisher: "野菜・果物の旬と相場メモ",
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     type: "website",
     locale: "ja_JP",
     url: siteUrl,
     siteName: "野菜・果物の旬と相場メモ",
+    title:
+      "野菜・果物の旬と相場メモ | 買い物のヒント",
+    description:
+      "野菜・果物の旬と直近の相場メモを週次で整理。市況の感触・お店での選び方・保存のコツをまとめています。",
   },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "野菜・果物の旬と相場メモ | 買い物のヒント",
+    description:
+      "野菜・果物の旬と直近の相場メモを週次で整理。市況の感触・お店での選び方・保存のコツをまとめています。",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "lifestyle",
 };
 
 export default function RootLayout({
