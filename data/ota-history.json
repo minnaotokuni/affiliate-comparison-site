@@ -327,6 +327,15 @@
         "volumeT": 156.6,
         "hasShipment": true,
         "itemLabel": "だいこん"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1371,
+        "hiMax": 1620,
+        "loMin": 1188,
+        "volumeT": 106.5,
+        "hasShipment": true,
+        "itemLabel": "だいこん"
       }
     },
     "30300": {
@@ -651,6 +660,15 @@
         "hiMax": 2268,
         "loMin": 1728,
         "volumeT": 164.3,
+        "hasShipment": true,
+        "itemLabel": "にんじん"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2160,
+        "hiMax": 2484,
+        "loMin": 1512,
+        "volumeT": 75.8,
         "hasShipment": true,
         "itemLabel": "にんじん"
       }
@@ -979,6 +997,15 @@
         "volumeT": 104.8,
         "hasShipment": true,
         "itemLabel": "はくさい"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1296,
+        "hiMax": 1728,
+        "loMin": 432,
+        "volumeT": 75.4,
+        "hasShipment": true,
+        "itemLabel": "はくさい"
       }
     },
     "31700": {
@@ -1303,6 +1330,15 @@
         "hiMax": 1296,
         "loMin": 648,
         "volumeT": 335.9,
+        "hasShipment": true,
+        "itemLabel": "キャベツ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 912,
+        "hiMax": 1404,
+        "loMin": 648,
+        "volumeT": 133,
         "hasShipment": true,
         "itemLabel": "キャベツ"
       }
@@ -1631,6 +1667,15 @@
         "volumeT": 10.2,
         "hasShipment": true,
         "itemLabel": "ほうれんそう"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1045,
+        "hiMax": 3240,
+        "loMin": 59,
+        "volumeT": 17.8,
+        "hasShipment": true,
+        "itemLabel": "ほうれんそう"
       }
     },
     "31900": {
@@ -1955,6 +2000,15 @@
         "hiMax": 2700,
         "loMin": 1836,
         "volumeT": 79.2,
+        "hasShipment": true,
+        "itemLabel": "ねぎ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2376,
+        "hiMax": 2700,
+        "loMin": 2160,
+        "volumeT": 72.9,
         "hasShipment": true,
         "itemLabel": "ねぎ"
       }
@@ -2283,6 +2337,15 @@
         "volumeT": 80.3,
         "hasShipment": true,
         "itemLabel": "ブロッコリー"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2957,
+        "hiMax": 4320,
+        "loMin": 2484,
+        "volumeT": 51.6,
+        "hasShipment": true,
+        "itemLabel": "ブロッコリー"
       }
     },
     "33400": {
@@ -2607,6 +2670,15 @@
         "hiMax": 1674,
         "loMin": 1037,
         "volumeT": 411.4,
+        "hasShipment": true,
+        "itemLabel": "レタス"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1093,
+        "hiMax": 1976,
+        "loMin": 1037,
+        "volumeT": 239.2,
         "hasShipment": true,
         "itemLabel": "レタス"
       }
@@ -2935,6 +3007,15 @@
         "volumeT": 152.3,
         "hasShipment": true,
         "itemLabel": "きゅうり"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2233,
+        "hiMax": 3240,
+        "loMin": 1728,
+        "volumeT": 65.6,
+        "hasShipment": true,
+        "itemLabel": "きゅうり"
       }
     },
     "34300": {
@@ -3259,6 +3340,15 @@
         "hiMax": 4320,
         "loMin": 146,
         "volumeT": 29.3,
+        "hasShipment": true,
+        "itemLabel": "なす"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1039,
+        "hiMax": 2376,
+        "loMin": 140,
+        "volumeT": 61.6,
         "hasShipment": true,
         "itemLabel": "なす"
       }
@@ -3587,6 +3677,15 @@
         "volumeT": 85.8,
         "hasShipment": true,
         "itemLabel": "トマト"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1744,
+        "hiMax": 2160,
+        "loMin": 1512,
+        "volumeT": 71.6,
+        "hasShipment": true,
+        "itemLabel": "トマト"
       }
     },
     "34500": {
@@ -3911,6 +4010,15 @@
         "hiMax": 119,
         "loMin": 76,
         "volumeT": 58.3,
+        "hasShipment": true,
+        "itemLabel": "ピーマン"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 78,
+        "hiMax": 119,
+        "loMin": 76,
+        "volumeT": 34,
         "hasShipment": true,
         "itemLabel": "ピーマン"
       }
@@ -4239,6 +4347,15 @@
         "volumeT": 60.2,
         "hasShipment": true,
         "itemLabel": "とうもろこし"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2160,
+        "hiMax": 3240,
+        "loMin": 1296,
+        "volumeT": 3.9,
+        "hasShipment": true,
+        "itemLabel": "とうもろこし"
       }
     },
     "36200": {
@@ -4565,6 +4682,15 @@
         "volumeT": 0,
         "hasShipment": false,
         "itemLabel": "ばれいしょ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 2592,
+        "hiMax": 2592,
+        "loMin": 2268,
+        "volumeT": 18.1,
+        "hasShipment": true,
+        "itemLabel": "ばれいしょ"
       }
     },
     "36300": {
@@ -4889,6 +5015,15 @@
         "hiMax": 1296,
         "loMin": 1296,
         "volumeT": 0.3,
+        "hasShipment": true,
+        "itemLabel": "さといも"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1728,
+        "hiMax": 1728,
+        "loMin": 1728,
+        "volumeT": 0.4,
         "hasShipment": true,
         "itemLabel": "さといも"
       }
@@ -5217,6 +5352,15 @@
         "volumeT": 167.3,
         "hasShipment": true,
         "itemLabel": "たまねぎ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": null,
+        "hiMax": 3240,
+        "loMin": 2592,
+        "volumeT": 0,
+        "hasShipment": false,
+        "itemLabel": "たまねぎ"
       }
     },
     "40110": {
@@ -5479,6 +5623,15 @@
         "loMin": 4536,
         "volumeT": 0,
         "hasShipment": false,
+        "itemLabel": "ハウスみかん"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 6264,
+        "hiMax": 10800,
+        "loMin": 6264,
+        "volumeT": 0.9,
+        "hasShipment": true,
         "itemLabel": "ハウスみかん"
       }
     },
@@ -5988,6 +6141,15 @@
         "volumeT": 52.5,
         "hasShipment": true,
         "itemLabel": "ふじ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": null,
+        "hiMax": 9720,
+        "loMin": 7020,
+        "volumeT": 0,
+        "hasShipment": false,
+        "itemLabel": "ふじ"
       }
     },
     "43900": {
@@ -6313,6 +6475,15 @@
         "loMin": 616,
         "volumeT": 0.1,
         "hasShipment": true,
+        "itemLabel": "びわ"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": null,
+        "hiMax": 486,
+        "loMin": 486,
+        "volumeT": 0,
+        "hasShipment": false,
         "itemLabel": "びわ"
       }
     },
@@ -6640,6 +6811,15 @@
         "volumeT": 128.3,
         "hasShipment": true,
         "itemLabel": "もも"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 3305,
+        "hiMax": 9720,
+        "loMin": 518,
+        "volumeT": 87.7,
+        "hasShipment": true,
+        "itemLabel": "もも"
       }
     },
     "45040": {
@@ -6955,6 +7135,15 @@
         "hiMax": 9720,
         "loMin": 9720,
         "volumeT": 0.6,
+        "hasShipment": true,
+        "itemLabel": "巨峰"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 7560,
+        "hiMax": 7560,
+        "loMin": 7560,
+        "volumeT": 0.9,
         "hasShipment": true,
         "itemLabel": "巨峰"
       }
@@ -7283,6 +7472,15 @@
         "volumeT": 2.5,
         "hasShipment": true,
         "itemLabel": "シャイン"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 11880,
+        "hiMax": 11880,
+        "loMin": 11880,
+        "volumeT": 3.9,
+        "hasShipment": true,
+        "itemLabel": "シャイン"
       }
     },
     "46000": {
@@ -7607,6 +7805,15 @@
         "hiMax": 864,
         "loMin": 810,
         "volumeT": 1,
+        "hasShipment": true,
+        "itemLabel": "いちご"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 864,
+        "hiMax": 864,
+        "loMin": 810,
+        "volumeT": 0.5,
         "hasShipment": true,
         "itemLabel": "いちご"
       }
@@ -7935,6 +8142,15 @@
         "volumeT": 8.4,
         "hasShipment": true,
         "itemLabel": "アールス"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": null,
+        "hiMax": 29160,
+        "loMin": 6480,
+        "volumeT": 0,
+        "hasShipment": false,
+        "itemLabel": "アールス"
       }
     },
     "47990": {
@@ -8259,6 +8475,15 @@
         "hiMax": 1620,
         "loMin": 1188,
         "volumeT": 25.6,
+        "hasShipment": true,
+        "itemLabel": "その他メロン"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 1404,
+        "hiMax": 1404,
+        "loMin": 1188,
+        "volumeT": 12.3,
         "hasShipment": true,
         "itemLabel": "その他メロン"
       }
@@ -8587,8 +8812,17 @@
         "volumeT": 140.3,
         "hasShipment": true,
         "itemLabel": "すいか"
+      },
+      "2026-06-23": {
+        "date": "2026-06-23",
+        "midWeighted": 5728,
+        "hiMax": 6480,
+        "loMin": 2916,
+        "volumeT": 94.2,
+        "hasShipment": true,
+        "itemLabel": "すいか"
       }
     }
   },
-  "lastSnapshotAt": "2026-06-23T06:48:29.068Z"
+  "lastSnapshotAt": "2026-06-24T06:45:08.463Z"
 }
