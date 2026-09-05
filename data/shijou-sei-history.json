@@ -386,6 +386,13 @@
         "wholesaleLowYenPerKg": 71,
         "typicalPieceGrams": 1050,
         "wholesaleYenForTypicalPiece": 96
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 99,
+        "wholesaleHighYenPerKg": 106,
+        "wholesaleLowYenPerKg": 90,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 104
       }
     },
     "toyosu|キャベツ|L": {
@@ -773,6 +780,13 @@
         "wholesaleLowYenPerKg": 71,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 142
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 99,
+        "wholesaleHighYenPerKg": 106,
+        "wholesaleLowYenPerKg": 90,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 154
       }
     },
     "toyosu|キャベツ|2L": {
@@ -1160,6 +1174,13 @@
         "wholesaleLowYenPerKg": 71,
         "typicalPieceGrams": 2150,
         "wholesaleYenForTypicalPiece": 197
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 99,
+        "wholesaleHighYenPerKg": 106,
+        "wholesaleLowYenPerKg": 90,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 213
       }
     },
     "toyosu|トマト|-": {
@@ -1547,6 +1568,13 @@
         "wholesaleLowYenPerKg": 297,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 59
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 520,
+        "wholesaleHighYenPerKg": 378,
+        "wholesaleLowYenPerKg": 297,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 73
       }
     },
     "toyosu|きゅうり|-": {
@@ -1934,6 +1962,13 @@
         "wholesaleLowYenPerKg": 413,
         "typicalPieceGrams": 95,
         "wholesaleYenForTypicalPiece": 43
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 479,
+        "wholesaleHighYenPerKg": 507,
+        "wholesaleLowYenPerKg": 443,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 45
       }
     },
     "toyosu|レタス|-": {
@@ -2321,6 +2356,13 @@
         "wholesaleLowYenPerKg": 132,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 45
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 154,
+        "wholesaleHighYenPerKg": 168,
+        "wholesaleLowYenPerKg": 135,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 49
       }
     },
     "toyosu|にんじん|-": {
@@ -2706,6 +2748,13 @@
         "wholesaleMidYenPerKg": 135,
         "wholesaleHighYenPerKg": 162,
         "wholesaleLowYenPerKg": 104,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 16
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 148,
+        "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 16
       }
@@ -3095,6 +3144,13 @@
         "wholesaleLowYenPerKg": 243,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 40
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 216,
+        "wholesaleHighYenPerKg": 325,
+        "wholesaleLowYenPerKg": 243,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 26
       }
     },
     "toyosu|はくさい|-": {
@@ -3482,6 +3538,13 @@
         "wholesaleLowYenPerKg": 62,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 28
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 77,
+        "wholesaleHighYenPerKg": 94,
+        "wholesaleLowYenPerKg": 59,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 27
       }
     },
     "ohta|キャベツ|M": {
@@ -3848,6 +3911,13 @@
         "wholesaleLowYenPerKg": 57,
         "typicalPieceGrams": 1050,
         "wholesaleYenForTypicalPiece": 106
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 97,
+        "wholesaleHighYenPerKg": 158,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 102
       }
     },
     "ohta|キャベツ|L": {
@@ -4214,6 +4284,13 @@
         "wholesaleLowYenPerKg": 57,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 157
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 97,
+        "wholesaleHighYenPerKg": 158,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 151
       }
     },
     "ohta|キャベツ|2L": {
@@ -4580,6 +4657,13 @@
         "wholesaleLowYenPerKg": 57,
         "typicalPieceGrams": 2150,
         "wholesaleYenForTypicalPiece": 218
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 97,
+        "wholesaleHighYenPerKg": 158,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 209
       }
     },
     "ohta|トマト|-": {
@@ -4946,6 +5030,13 @@
         "wholesaleLowYenPerKg": 216,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 57
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 432,
+        "wholesaleHighYenPerKg": 621,
+        "wholesaleLowYenPerKg": 216,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 60
       }
     },
     "ohta|きゅうり|-": {
@@ -5312,6 +5403,13 @@
         "wholesaleLowYenPerKg": 270,
         "typicalPieceGrams": 95,
         "wholesaleYenForTypicalPiece": 43
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 477,
+        "wholesaleHighYenPerKg": 736,
+        "wholesaleLowYenPerKg": 311,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 45
       }
     },
     "ohta|レタス|-": {
@@ -5676,6 +5774,13 @@
         "wholesaleMidYenPerKg": 140,
         "wholesaleHighYenPerKg": 195,
         "wholesaleLowYenPerKg": 65,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 45
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 140,
+        "wholesaleHighYenPerKg": 207,
+        "wholesaleLowYenPerKg": 80,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 45
       }
@@ -6044,6 +6149,13 @@
         "wholesaleLowYenPerKg": 151,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 21
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 171,
+        "wholesaleHighYenPerKg": 197,
+        "wholesaleLowYenPerKg": 150,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 21
       }
     },
     "ohta|なす|-": {
@@ -6407,6 +6519,13 @@
       "2026-09-04": {
         "wholesaleMidYenPerKg": 378,
         "wholesaleHighYenPerKg": 485,
+        "wholesaleLowYenPerKg": 163,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 45
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 378,
+        "wholesaleHighYenPerKg": 484,
         "wholesaleLowYenPerKg": 163,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 45
@@ -6776,6 +6895,13 @@
         "wholesaleLowYenPerKg": 46,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 24
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 80,
+        "wholesaleHighYenPerKg": 112,
+        "wholesaleLowYenPerKg": 59,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 28
       }
     },
     "toshima|キャベツ|M": {
@@ -7158,6 +7284,13 @@
         "wholesaleYenForTypicalPiece": 136
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 140,
+        "wholesaleLowYenPerKg": 97,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 136
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 130,
         "wholesaleHighYenPerKg": 140,
         "wholesaleLowYenPerKg": 97,
@@ -7550,6 +7683,13 @@
         "wholesaleLowYenPerKg": 97,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 201
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 140,
+        "wholesaleLowYenPerKg": 97,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 201
       }
     },
     "toshima|キャベツ|2L": {
@@ -7932,6 +8072,13 @@
         "wholesaleYenForTypicalPiece": 279
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 140,
+        "wholesaleLowYenPerKg": 97,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 279
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 130,
         "wholesaleHighYenPerKg": 140,
         "wholesaleLowYenPerKg": 97,
@@ -8324,6 +8471,13 @@
         "wholesaleLowYenPerKg": 351,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 68
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 486,
+        "wholesaleHighYenPerKg": 662,
+        "wholesaleLowYenPerKg": 351,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 68
       }
     },
     "toshima|きゅうり|-": {
@@ -8711,6 +8865,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 95,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 626,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "toshima|レタス|-": {
@@ -9093,6 +9254,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 215,
+        "wholesaleLowYenPerKg": 140,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 215,
         "wholesaleLowYenPerKg": 140,
@@ -9485,6 +9653,13 @@
         "wholesaleLowYenPerKg": 151,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 151,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "toshima|なす|-": {
@@ -9869,6 +10044,13 @@
       "2026-09-04": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 421,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 400,
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": null
@@ -10259,6 +10441,13 @@
         "wholesaleLowYenPerKg": 58,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 25
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 72,
+        "wholesaleHighYenPerKg": 86,
+        "wholesaleLowYenPerKg": 58,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 25
       }
     },
     "yodobashi|キャベツ|M": {
@@ -10620,6 +10809,13 @@
         "wholesaleYenForTypicalPiece": 159
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 151,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 121,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 159
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 151,
         "wholesaleHighYenPerKg": 173,
         "wholesaleLowYenPerKg": 121,
@@ -10991,6 +11187,13 @@
         "wholesaleLowYenPerKg": 121,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 234
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 151,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 121,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 234
       }
     },
     "yodobashi|キャベツ|2L": {
@@ -11352,6 +11555,13 @@
         "wholesaleYenForTypicalPiece": 325
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 151,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 121,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 325
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 151,
         "wholesaleHighYenPerKg": 173,
         "wholesaleLowYenPerKg": 121,
@@ -11723,6 +11933,13 @@
         "wholesaleLowYenPerKg": 454,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 79
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 567,
+        "wholesaleHighYenPerKg": 648,
+        "wholesaleLowYenPerKg": 454,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 79
       }
     },
     "yodobashi|きゅうり|-": {
@@ -12084,6 +12301,13 @@
         "wholesaleYenForTypicalPiece": 54
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 567,
+        "wholesaleHighYenPerKg": 648,
+        "wholesaleLowYenPerKg": 454,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 54
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 567,
         "wholesaleHighYenPerKg": 648,
         "wholesaleLowYenPerKg": 454,
@@ -12455,6 +12679,13 @@
         "wholesaleLowYenPerKg": 197,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 79
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 246,
+        "wholesaleHighYenPerKg": 281,
+        "wholesaleLowYenPerKg": 197,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 79
       }
     },
     "yodobashi|にんじん|-": {
@@ -12816,6 +13047,13 @@
         "wholesaleYenForTypicalPiece": 20
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 170,
+        "wholesaleHighYenPerKg": 194,
+        "wholesaleLowYenPerKg": 136,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 20
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 170,
         "wholesaleHighYenPerKg": 194,
         "wholesaleLowYenPerKg": 136,
@@ -13187,6 +13425,13 @@
         "wholesaleLowYenPerKg": 378,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 57
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 473,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 378,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 57
       }
     },
     "yodobashi|はくさい|-": {
@@ -13553,6 +13798,13 @@
         "wholesaleLowYenPerKg": 81,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 36
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 102,
+        "wholesaleHighYenPerKg": 116,
+        "wholesaleLowYenPerKg": 81,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 36
       }
     },
     "itabashi|キャベツ|M": {
@@ -13907,6 +14159,13 @@
         "wholesaleYenForTypicalPiece": 136
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 129,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 108,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 136
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 129,
         "wholesaleHighYenPerKg": 162,
         "wholesaleLowYenPerKg": 108,
@@ -14271,6 +14530,13 @@
         "wholesaleLowYenPerKg": 108,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 200
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 129,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 108,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 201
       }
     },
     "itabashi|キャベツ|2L": {
@@ -14625,6 +14891,13 @@
         "wholesaleYenForTypicalPiece": 278
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 129,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 108,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 278
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 129,
         "wholesaleHighYenPerKg": 162,
         "wholesaleLowYenPerKg": 108,
@@ -14989,6 +15262,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 66
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 473,
+        "wholesaleHighYenPerKg": 581,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 66
       }
     },
     "itabashi|きゅうり|-": {
@@ -15344,6 +15624,13 @@
       },
       "2026-09-04": {
         "wholesaleMidYenPerKg": 537,
+        "wholesaleHighYenPerKg": 648,
+        "wholesaleLowYenPerKg": 432,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 51
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 538,
         "wholesaleHighYenPerKg": 648,
         "wholesaleLowYenPerKg": 432,
         "typicalPieceGrams": 95,
@@ -15707,6 +15994,13 @@
         "wholesaleLowYenPerKg": 108,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 40
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 124,
+        "wholesaleHighYenPerKg": 140,
+        "wholesaleLowYenPerKg": 130,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 40
       }
     },
     "itabashi|にんじん|-": {
@@ -16061,6 +16355,13 @@
         "wholesaleYenForTypicalPiece": 19
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 173,
+        "wholesaleHighYenPerKg": 194,
+        "wholesaleLowYenPerKg": 151,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 21
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 173,
         "wholesaleHighYenPerKg": 194,
         "wholesaleLowYenPerKg": 151,
@@ -16425,6 +16726,13 @@
         "wholesaleLowYenPerKg": 325,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 45
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 378,
+        "wholesaleHighYenPerKg": 433,
+        "wholesaleLowYenPerKg": 325,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 45
       }
     },
     "itabashi|はくさい|-": {
@@ -16784,6 +17092,13 @@
         "wholesaleLowYenPerKg": 90,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 3
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 72,
+        "wholesaleHighYenPerKg": 117,
+        "wholesaleLowYenPerKg": 108,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 25
       }
     },
     "setagaya|キャベツ|M": {
@@ -17136,6 +17451,13 @@
         "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 1050,
         "wholesaleYenForTypicalPiece": 136
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 113
       }
     },
     "setagaya|キャベツ|L": {
@@ -17488,6 +17810,13 @@
         "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 201
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 167
       }
     },
     "setagaya|キャベツ|2L": {
@@ -17840,6 +18169,13 @@
         "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 2150,
         "wholesaleYenForTypicalPiece": 279
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 232
       }
     },
     "setagaya|トマト|-": {
@@ -18187,6 +18523,13 @@
         "wholesaleYenForTypicalPiece": 87
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 594,
+        "wholesaleHighYenPerKg": 648,
+        "wholesaleLowYenPerKg": 540,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 83
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 594,
         "wholesaleHighYenPerKg": 648,
         "wholesaleLowYenPerKg": 540,
@@ -18544,6 +18887,13 @@
         "wholesaleLowYenPerKg": 259,
         "typicalPieceGrams": 95,
         "wholesaleYenForTypicalPiece": 51
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 540,
+        "wholesaleHighYenPerKg": 756,
+        "wholesaleLowYenPerKg": 324,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 51
       }
     },
     "setagaya|レタス|-": {
@@ -18896,6 +19246,13 @@
         "wholesaleLowYenPerKg": 140,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 62
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 184,
+        "wholesaleHighYenPerKg": 216,
+        "wholesaleLowYenPerKg": 140,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 59
       }
     },
     "setagaya|にんじん|-": {
@@ -19243,6 +19600,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 216,
+        "wholesaleLowYenPerKg": 162,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 216,
         "wholesaleLowYenPerKg": 162,
@@ -19600,6 +19964,13 @@
         "wholesaleLowYenPerKg": 298,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 49
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 405,
+        "wholesaleHighYenPerKg": 460,
+        "wholesaleLowYenPerKg": 298,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 49
       }
     },
     "setagaya|はくさい|-": {
@@ -19947,6 +20318,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 100,
+        "wholesaleLowYenPerKg": 83,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 100,
         "wholesaleLowYenPerKg": 83,
@@ -20311,6 +20689,13 @@
         "wholesaleLowYenPerKg": 76,
         "typicalPieceGrams": 1050,
         "wholesaleYenForTypicalPiece": 113
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": 86,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 113
       }
     },
     "kitaadachi|キャベツ|L": {
@@ -20668,6 +21053,13 @@
         "wholesaleMidYenPerKg": 108,
         "wholesaleHighYenPerKg": 130,
         "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 167
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": 167
       }
@@ -21029,6 +21421,13 @@
         "wholesaleLowYenPerKg": 76,
         "typicalPieceGrams": 2150,
         "wholesaleYenForTypicalPiece": 232
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": 86,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 232
       }
     },
     "kitaadachi|トマト|-": {
@@ -21386,6 +21785,13 @@
         "wholesaleMidYenPerKg": 486,
         "wholesaleHighYenPerKg": 594,
         "wholesaleLowYenPerKg": 324,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": 68
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 486,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 432,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": 68
       }
@@ -21747,6 +22153,13 @@
         "wholesaleLowYenPerKg": 389,
         "typicalPieceGrams": 95,
         "wholesaleYenForTypicalPiece": 47
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 497,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 432,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": 47
       }
     },
     "kitaadachi|レタス|-": {
@@ -22106,6 +22519,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": 41
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": 41
       }
     },
     "kitaadachi|にんじん|-": {
@@ -22460,6 +22880,13 @@
         "wholesaleYenForTypicalPiece": 16
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 130,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 76,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 16
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 130,
         "wholesaleHighYenPerKg": 173,
         "wholesaleLowYenPerKg": 76,
@@ -22824,6 +23251,13 @@
         "wholesaleLowYenPerKg": 130,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": 42
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 351,
+        "wholesaleHighYenPerKg": 459,
+        "wholesaleLowYenPerKg": 173,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": 42
       }
     },
     "kitaadachi|はくさい|-": {
@@ -23183,6 +23617,13 @@
         "wholesaleLowYenPerKg": 54,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": 25
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 72,
+        "wholesaleHighYenPerKg": 113,
+        "wholesaleLowYenPerKg": 54,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": 25
       }
     },
     "tama_nt|キャベツ|M": {
@@ -23502,6 +23943,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 162,
         "wholesaleLowYenPerKg": null,
@@ -23831,6 +24279,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 1550,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "tama_nt|キャベツ|2L": {
@@ -24150,6 +24605,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 162,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 162,
         "wholesaleLowYenPerKg": null,
@@ -24479,6 +24941,13 @@
         "wholesaleLowYenPerKg": 432,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 594,
+        "wholesaleLowYenPerKg": 432,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "tama_nt|きゅうり|-": {
@@ -24798,6 +25267,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 648,
+        "wholesaleLowYenPerKg": 281,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 648,
         "wholesaleLowYenPerKg": 281,
@@ -25127,6 +25603,13 @@
         "wholesaleLowYenPerKg": 130,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 216,
+        "wholesaleLowYenPerKg": 130,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "tama_nt|にんじん|-": {
@@ -25446,6 +25929,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 216,
+        "wholesaleLowYenPerKg": 162,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 216,
         "wholesaleLowYenPerKg": 162,
@@ -25775,6 +26265,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "tama_nt|はくさい|-": {
@@ -26094,6 +26591,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 79,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 79,
         "wholesaleLowYenPerKg": null,
@@ -26472,6 +26976,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 1050,
         "wholesaleYenForTypicalPiece": 113
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 1050,
+        "wholesaleYenForTypicalPiece": 113
       }
     },
     "kasai|キャベツ|L": {
@@ -26840,6 +27351,13 @@
         "wholesaleYenForTypicalPiece": 167
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 1550,
+        "wholesaleYenForTypicalPiece": 167
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": 108,
         "wholesaleHighYenPerKg": 130,
         "wholesaleLowYenPerKg": null,
@@ -27218,6 +27736,13 @@
         "wholesaleLowYenPerKg": null,
         "typicalPieceGrams": 2150,
         "wholesaleYenForTypicalPiece": 232
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": 108,
+        "wholesaleHighYenPerKg": 130,
+        "wholesaleLowYenPerKg": null,
+        "typicalPieceGrams": 2150,
+        "wholesaleYenForTypicalPiece": 232
       }
     },
     "kasai|トマト|-": {
@@ -27591,6 +28116,13 @@
         "wholesaleLowYenPerKg": 297,
         "typicalPieceGrams": 140,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 270,
+        "typicalPieceGrams": 140,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "kasai|きゅうり|-": {
@@ -27959,6 +28491,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 346,
+        "typicalPieceGrams": 95,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 540,
         "wholesaleLowYenPerKg": 346,
@@ -28337,6 +28876,13 @@
         "wholesaleLowYenPerKg": 86,
         "typicalPieceGrams": 320,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 108,
+        "typicalPieceGrams": 320,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "kasai|にんじん|-": {
@@ -28705,6 +29251,13 @@
         "wholesaleYenForTypicalPiece": null
       },
       "2026-09-04": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 173,
+        "wholesaleLowYenPerKg": 97,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
         "wholesaleMidYenPerKg": null,
         "wholesaleHighYenPerKg": 173,
         "wholesaleLowYenPerKg": 97,
@@ -29083,6 +29636,13 @@
         "wholesaleLowYenPerKg": 350,
         "typicalPieceGrams": 120,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 540,
+        "wholesaleLowYenPerKg": 350,
+        "typicalPieceGrams": 120,
+        "wholesaleYenForTypicalPiece": null
       }
     },
     "kasai|はくさい|-": {
@@ -29456,8 +30016,15 @@
         "wholesaleLowYenPerKg": 43,
         "typicalPieceGrams": 350,
         "wholesaleYenForTypicalPiece": null
+      },
+      "2026-09-05": {
+        "wholesaleMidYenPerKg": null,
+        "wholesaleHighYenPerKg": 86,
+        "wholesaleLowYenPerKg": 43,
+        "typicalPieceGrams": 350,
+        "wholesaleYenForTypicalPiece": null
       }
     }
   },
-  "lastSnapshotAt": "2026-09-04T07:46:34.009Z"
+  "lastSnapshotAt": "2026-09-05T07:20:46.585Z"
 }
